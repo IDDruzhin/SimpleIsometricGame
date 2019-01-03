@@ -10,5 +10,6 @@ public:
 	SFMLGraphicsComponent();
 	~SFMLGraphicsComponent();
 	void SetTexture(const sf::Texture &texture);
+	void SetLocation(float2 location);
 };
 

@@ -11,6 +11,6 @@ private:
 public:
 	SFMLGraphicsEngine();
 	~SFMLGraphicsEngine();
-	shared_ptr<GraphicsComponent> RegisterGraphicsResource(string path);
+	shared_ptr<GraphicsComponent> RegisterGraphicsResource(const string &path);
 };
 

@@ -11,7 +11,7 @@ SFMLGraphicsEngine::~SFMLGraphicsEngine()
 {
 }
 
-shared_ptr<GraphicsComponent> SFMLGraphicsEngine::RegisterGraphicsResource(string path)
+shared_ptr<GraphicsComponent> SFMLGraphicsEngine::RegisterGraphicsResource(const string &path)
 {
 	shared_ptr<SFMLGraphicsComponent> graphicsComponent;
 	auto res = textures_.find(path);

@@ -156,6 +156,7 @@
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="GraphicsEngine.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="GridActor.h" />
     <ClInclude Include="SFMLGraphicsComponent.h" />
     <ClInclude Include="SFMLGraphicsEngine.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="GraphicsEngine.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GridActor.cpp" />
     <ClCompile Include="SFMLGraphicsComponent.cpp" />
     <ClCompile Include="SFMLGraphicsEngine.cpp" />

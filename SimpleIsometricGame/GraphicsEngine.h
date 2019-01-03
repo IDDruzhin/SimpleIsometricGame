@@ -6,6 +6,6 @@ class GraphicsEngine
 public:
 	GraphicsEngine();
 	~GraphicsEngine();
-	virtual shared_ptr<GraphicsComponent> RegisterGraphicsResource(string path) = 0;
+	virtual shared_ptr<GraphicsComponent> RegisterGraphicsResource(const string &path) = 0;
 };
 
