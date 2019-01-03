@@ -4,10 +4,11 @@ class GridActor :
 	public BaseObject
 {
 protected:
-	int2 grid_location_;
+	float2 grid_location_;
 	//shared_ptr<GraphicsComponent> CGraphics;
 public:
 	GridActor();
 	~GridActor();
+	int2 GetGridCellLocation();
 };
 

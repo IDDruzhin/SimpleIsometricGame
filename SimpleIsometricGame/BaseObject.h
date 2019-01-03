@@ -2,7 +2,7 @@
 class BaseObject
 {
 protected:
-	float2 world_location_;
+	float2 screen_location_;
 public:
 	BaseObject();
 	~BaseObject();
