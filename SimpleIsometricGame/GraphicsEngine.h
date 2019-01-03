@@ -1,9 +1,11 @@
 #pragma once
+#include "GraphicsComponent.h"
+
 class GraphicsEngine
 {
 public:
 	GraphicsEngine();
 	~GraphicsEngine();
-	//shared_ptr<Graphics>
+	virtual shared_ptr<GraphicsComponent> RegisterGraphicsResource(string path) = 0;
 };
 

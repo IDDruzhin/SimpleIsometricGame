@@ -11,12 +11,12 @@ BaseObject::~BaseObject()
 {
 }
 
-void BaseObject::SetWorldLocation(float2 l)
+void BaseObject::SetWorldLocation(float2 world_location)
 {
-	WorldLocation = l;
+	world_location_ = world_location;
 }
 
 float2 BaseObject::GetWorldLocation()
 {
-	return WorldLocation;
+	return world_location_;
 }
