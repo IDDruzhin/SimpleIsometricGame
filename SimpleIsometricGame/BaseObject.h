@@ -6,7 +6,7 @@ protected:
 public:
 	BaseObject();
 	~BaseObject();
-	void SetWorldLocation(float2 world_location);
-	float2 GetWorldLocation();
+	void SetScreenLocation(float2 screen_location);
+	float2 GetScreenLocation();
 };
 
