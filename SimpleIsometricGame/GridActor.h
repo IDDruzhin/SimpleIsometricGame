@@ -9,6 +9,7 @@ protected:
 public:
 	GridActor();
 	~GridActor();
+	void SetGridCellLocation(int2 grid_location);
 	int2 GetGridCellLocation();
 };
 

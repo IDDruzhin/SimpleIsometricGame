@@ -20,3 +20,4 @@ float2 BaseObject::GetScreenLocation()
 {
 	return screen_location_;
 }
+
