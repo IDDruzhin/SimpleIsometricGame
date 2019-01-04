@@ -78,6 +78,9 @@
     <ClInclude Include="Timer.h">
       <Filter>Файлы заголовков\Misc</Filter>
     </ClInclude>
+    <ClInclude Include="GameModel.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -115,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Исходные файлы\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="GameModel.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
