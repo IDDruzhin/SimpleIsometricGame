@@ -1,5 +1,7 @@
 #pragma once
 
+typedef unsigned char uchar;
+
 struct float2
 {
 	float x;
