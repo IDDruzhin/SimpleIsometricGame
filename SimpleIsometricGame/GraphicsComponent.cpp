@@ -22,5 +22,24 @@ void GraphicsComponent::SetState(uint state)
 	{
 		cur_state_ = state;
 		cur_frame_ = 0;
+		SetSpriteWindow();
+	}
+}
+
+void GraphicsComponent::NextFrame()
+{
+	if (sheet_info_)
+	{
+		float time = timer_.GetElapsedSeconds() - play_rate_;
+		if (time > 0)
+		{
+			cur_frame_++;
+			if (cur_frame_ >= sheet_info_->sheet_intervals[cur_state_].y)
+			{
+				cur_frame_ = 0;
+			}
+			SetSpriteWindow();
+			timer_.Restart(time);
+		}
 	}
 }

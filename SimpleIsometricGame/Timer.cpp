@@ -2,7 +2,7 @@
 #include "Timer.h"
 
 
-Timer::Timer()
+Timer::Timer():init_seconds_(0.0f),start_(chrono::system_clock::now())
 {
 }
 
