@@ -162,6 +162,7 @@
     <ClInclude Include="InputController.h" />
     <ClInclude Include="SFMLGraphicsComponent.h" />
     <ClInclude Include="SFMLGraphicsEngine.h" />
+    <ClInclude Include="SFMLInputController.h" />
     <ClInclude Include="SimpleGrid.h" />
     <ClInclude Include="SpriteSheetComponent.h" />
     <ClInclude Include="stdafx.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="InputController.cpp" />
     <ClCompile Include="SFMLGraphicsComponent.cpp" />
     <ClCompile Include="SFMLGraphicsEngine.cpp" />
+    <ClCompile Include="SFMLInputController.cpp" />
     <ClCompile Include="SimpleGrid.cpp" />
     <ClCompile Include="SimpleIsometricGame.cpp" />
     <ClCompile Include="SpriteSheetComponent.cpp" />

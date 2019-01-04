@@ -1,6 +1,7 @@
 #pragma once
 #include "GraphicsEngine.h"
 #include "SFMLGraphicsComponent.h"
+#include "SFMLInputController.h"
 #include <SFML/Graphics.hpp>
 
 struct GraphicsData
@@ -14,7 +15,7 @@ class SFMLGraphicsEngine :
 	public GraphicsEngine
 {
 private:
-	sf::RenderWindow window_;
+	shared_ptr<sf::RenderWindow> window_;
 	unordered_map<string, GraphicsData> graphics_data_map_;
 public:
 	SFMLGraphicsEngine();
@@ -27,5 +28,6 @@ public:
 	void Draw(shared_ptr<GraphicsComponent> graphics_component);
 	void Clear();
 	void Present();
+	shared_ptr<InputController> GetCompatibleController();
 };
 

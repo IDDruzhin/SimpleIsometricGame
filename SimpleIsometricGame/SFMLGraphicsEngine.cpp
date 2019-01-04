@@ -2,12 +2,14 @@
 #include "SFMLGraphicsEngine.h"
 
 
-SFMLGraphicsEngine::SFMLGraphicsEngine() : window_(sf::VideoMode(1024, 768), "SimpleIsometricGame")
+SFMLGraphicsEngine::SFMLGraphicsEngine()
 {
+	window_ = make_shared<sf::RenderWindow>(sf::VideoMode(1024, 768), "SimpleIsometricGame");
 }
 
-SFMLGraphicsEngine::SFMLGraphicsEngine(uint2 size, string name) : window_(sf::VideoMode(size.x, size.y), name)
+SFMLGraphicsEngine::SFMLGraphicsEngine(uint2 size, string name)
 {
+	window_ = make_shared<sf::RenderWindow>(sf::VideoMode(size.x, size.y), name);
 }
 
 
@@ -52,16 +54,22 @@ void SFMLGraphicsEngine::Draw(shared_ptr<GraphicsComponent> graphics_component)
 	shared_ptr<SFMLGraphicsComponent> cur_graphics_component = dynamic_pointer_cast<SFMLGraphicsComponent>(graphics_component);
 	if (cur_graphics_component)
 	{
-		window_.draw(cur_graphics_component->GetSprite());
+		window_->draw(cur_graphics_component->GetSprite());
 	}
 }
 
 void SFMLGraphicsEngine::Clear()
 {
-	window_.clear();
+	window_->clear();
 }
 
 void SFMLGraphicsEngine::Present()
 {
-	window_.display();
+	window_->display();
+}
+
+shared_ptr<InputController> SFMLGraphicsEngine::GetCompatibleController()
+{
+	shared_ptr<SFMLInputController> compatible_controller = make_shared<SFMLInputController>(window_);
+	return compatible_controller;
 }
