@@ -68,6 +68,8 @@ void Grid::Draw(shared_ptr<GraphicsEngine> graphics_engine)
 				cell_screen_location = GridToScreen(cell_grid_location);
 				cell_screen_location.x += screen_location_.x;
 				cell_screen_location.y += screen_location_.y;
+				cells_graphics_->SetLocation(cell_screen_location);
+				graphics_engine->Draw(cells_graphics_);
 			}
 		}
 	}

@@ -17,7 +17,7 @@ public:
 	uint2 GetDim();
 	void SetCellsMap(vector<unsigned char> cells_map);
 	void RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const string &path);
-	void GenerateRandomGrid(int seed = 123);
+	virtual void GenerateRandomGrid(int seed = 123);
 	void Draw(shared_ptr<GraphicsEngine> graphics_engine);
 	float2 GridToScreen(float2 grid_pos);
 	float2 ScreenToGrid(float2 screen_pos);
