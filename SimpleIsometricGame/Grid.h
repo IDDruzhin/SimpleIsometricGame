@@ -5,19 +5,21 @@ class Grid :
 	public BaseObject
 {
 protected:
-	int2 dim_;
+	uint2 dim_;
 	float cell_size_;
 	vector<unsigned char> cells_map_;
-	vector<shared_ptr<GraphicsComponent>> cells_graphics_;
+	shared_ptr<GraphicsComponent> cells_graphics_;
 public:
 	Grid();
-	Grid(int2 dim, float cell_size);
+	Grid(uint2 dim, float cell_size);
 	~Grid();
-	void SetDim(int2 dim);
-	int2 GetDim();
+	void SetDim(uint2 dim);
+	uint2 GetDim();
 	void SetCellsMap(vector<unsigned char> cells_map);
-	void RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const vector<string> &pathes);
+	void RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const string &path);
 	void GenerateRandomGrid(int seed = 123);
 	void Draw(shared_ptr<GraphicsEngine> graphics_engine);
+	float2 GetScreenPos(float2 grid_pos);
+	float2 GetGridPos(float2 screen_pos);
 };
 
