@@ -9,5 +9,6 @@ private:
 public:
 	SFMLInputController(shared_ptr<sf::RenderWindow> window);
 	~SFMLInputController();
+	void Update();
 };
 

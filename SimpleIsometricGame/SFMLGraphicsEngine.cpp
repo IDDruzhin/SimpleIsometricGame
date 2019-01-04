@@ -73,3 +73,8 @@ shared_ptr<InputController> SFMLGraphicsEngine::GetCompatibleController()
 	shared_ptr<SFMLInputController> compatible_controller = make_shared<SFMLInputController>(window_);
 	return compatible_controller;
 }
+
+bool SFMLGraphicsEngine::IsRunning()
+{
+	return window_->isOpen();
+}

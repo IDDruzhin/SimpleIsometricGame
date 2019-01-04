@@ -29,5 +29,6 @@ public:
 	void Clear();
 	void Present();
 	shared_ptr<InputController> GetCompatibleController();
+	bool IsRunning();
 };
 

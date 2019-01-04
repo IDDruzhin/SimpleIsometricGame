@@ -9,5 +9,6 @@ public:
 	InputController();
 	~InputController();
 	void SetGameModel(shared_ptr<GameModel> game_model);
+	virtual void Update();
 };
 

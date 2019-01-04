@@ -15,5 +15,6 @@ public:
 	virtual void Clear() = 0;
 	virtual void Present() = 0;
 	virtual shared_ptr<InputController> GetCompatibleController() = 0;
+	virtual bool IsRunning() = 0;
 };
 

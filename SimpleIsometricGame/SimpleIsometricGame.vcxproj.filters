@@ -87,6 +87,9 @@
     <ClInclude Include="SFMLInputController.h">
       <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleGameModel.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -132,6 +135,9 @@
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
     <ClCompile Include="SFMLInputController.cpp">
+      <Filter>Исходные файлы\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameModel.cpp">
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
   </ItemGroup>
