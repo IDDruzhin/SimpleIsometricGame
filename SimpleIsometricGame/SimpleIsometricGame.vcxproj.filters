@@ -79,7 +79,10 @@
       <Filter>Файлы заголовков\Misc</Filter>
     </ClInclude>
     <ClInclude Include="GameModel.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="InputController.h">
+      <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -120,7 +123,10 @@
       <Filter>Исходные файлы\Misc</Filter>
     </ClCompile>
     <ClCompile Include="GameModel.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="InputController.cpp">
+      <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
