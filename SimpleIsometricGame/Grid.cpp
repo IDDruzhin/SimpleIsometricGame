@@ -7,11 +7,12 @@ Grid::Grid()
 }
 
 
-Grid::Grid(uint2 dim, float cell_size)
+Grid::Grid(uint2 dim, float cell_size, shared_ptr<GraphicsEngine> graphics_engine, const string &cell_texture_path)
 {
 	dim_ = dim;
 	cell_size_ = cell_size;
-	cells_map_.resize(dim_.x*dim_.y);
+	cells_map_.resize(dim_.x*dim_.y,1);
+	RegisterCellsGraphics(graphics_engine, cell_texture_path);
 }
 
 Grid::~Grid()
@@ -27,6 +28,16 @@ void Grid::SetDim(uint2 dim)
 uint2 Grid::GetDim()
 {
 	return dim_;
+}
+
+void Grid::SetCellSize(float size)
+{
+	cell_size_ = size;
+}
+
+float Grid::GetCellSize()
+{
+	return cell_size_;
 }
 
 void Grid::SetCellsMap(vector<unsigned char> cells_map)

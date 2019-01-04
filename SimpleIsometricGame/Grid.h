@@ -11,10 +11,12 @@ protected:
 	shared_ptr<GraphicsComponent> cells_graphics_;
 public:
 	Grid();
-	Grid(uint2 dim, float cell_size);
+	Grid(uint2 dim, float cell_size, shared_ptr<GraphicsEngine> graphics_engine, const string &cell_texture_path);
 	~Grid();
 	void SetDim(uint2 dim);
 	uint2 GetDim();
+	void SetCellSize(float size);
+	float GetCellSize();
 	void SetCellsMap(vector<unsigned char> cells_map);
 	void RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const string &path);
 	virtual void GenerateRandomGrid(int seed = 123);
