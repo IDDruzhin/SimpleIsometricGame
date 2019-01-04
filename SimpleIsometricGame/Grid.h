@@ -19,7 +19,7 @@ public:
 	void RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const string &path);
 	void GenerateRandomGrid(int seed = 123);
 	void Draw(shared_ptr<GraphicsEngine> graphics_engine);
-	float2 GetScreenPos(float2 grid_pos);
-	float2 GetGridPos(float2 screen_pos);
+	float2 GridToScreen(float2 grid_pos);
+	float2 ScreenToGrid(float2 screen_pos);
 };
 

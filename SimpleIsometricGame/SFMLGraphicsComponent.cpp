@@ -20,3 +20,8 @@ void SFMLGraphicsComponent::SetLocation(float2 location)
 {
 	sprite_.setPosition(location.x, location.y);
 }
+
+sf::Sprite SFMLGraphicsComponent::GetSprite()
+{
+	return sprite_;
+}

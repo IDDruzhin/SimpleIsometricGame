@@ -54,7 +54,8 @@ void Grid::GenerateRandomGrid(int seed)
 void Grid::Draw(shared_ptr<GraphicsEngine> graphics_engine)
 {
 	int index;
-	float2 cell_location;
+	float2 cell_grid_location;
+	float2 cell_screen_location;
 	for (int y = 0; y < dim_.y; y++)
 	{
 		for (int x = 0; x < dim_.x; x++)
@@ -62,14 +63,17 @@ void Grid::Draw(shared_ptr<GraphicsEngine> graphics_engine)
 			index = y * dim_.x + x;
 			if (cells_map_[index] > 0)
 			{
-				cell_location = screen_location_;
-				//cells_graphics_[cells_map_[index] - 1]->SetLocation();
+				cell_grid_location.x = x * cell_size_;
+				cell_grid_location.y = y * cell_size_;
+				cell_screen_location = GridToScreen(cell_grid_location);
+				cell_screen_location.x += screen_location_.x;
+				cell_screen_location.y += screen_location_.y;
 			}
 		}
 	}
 }
 
-float2 Grid::GetScreenPos(float2 grid_pos)
+float2 Grid::GridToScreen(float2 grid_pos)
 {
 	float2 screen_pos;
 	screen_pos.x = grid_pos.x - grid_pos.y;
@@ -77,7 +81,7 @@ float2 Grid::GetScreenPos(float2 grid_pos)
 	return screen_pos;
 }
 
-float2 Grid::GetGridPos(float2 screen_pos)
+float2 Grid::ScreenToGrid(float2 screen_pos)
 {
 	float2 grid_pos;
 	grid_pos.x = (2 * screen_pos.y + screen_pos.x) / 2.0f;

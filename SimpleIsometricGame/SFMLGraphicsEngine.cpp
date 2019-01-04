@@ -2,7 +2,11 @@
 #include "SFMLGraphicsEngine.h"
 
 
-SFMLGraphicsEngine::SFMLGraphicsEngine()
+SFMLGraphicsEngine::SFMLGraphicsEngine() : window_(sf::VideoMode(1024, 768), "SimpleIsometricGame")
+{
+}
+
+SFMLGraphicsEngine::SFMLGraphicsEngine(uint2 size, string name) : window_(sf::VideoMode(size.x, size.y), name)
 {
 }
 
@@ -41,4 +45,23 @@ void SFMLGraphicsEngine::RegisterGraphicsResource(shared_ptr<GraphicsComponent>&
 	sprite_sheet_component_tmp->SetSheetInfo(res->second.sheet_info);
 	graphics_component = move(graphics_component_tmp);
 	sprite_sheet_component = move(sprite_sheet_component_tmp);
+}
+
+void SFMLGraphicsEngine::Draw(shared_ptr<GraphicsComponent> graphics_component)
+{
+	shared_ptr<SFMLGraphicsComponent> cur_graphics_component = dynamic_pointer_cast<SFMLGraphicsComponent>(graphics_component);
+	if (cur_graphics_component)
+	{
+		window_.draw(cur_graphics_component->GetSprite());
+	}
+}
+
+void SFMLGraphicsEngine::Clear()
+{
+	window_.clear();
+}
+
+void SFMLGraphicsEngine::Present()
+{
+	window_.display();
 }
