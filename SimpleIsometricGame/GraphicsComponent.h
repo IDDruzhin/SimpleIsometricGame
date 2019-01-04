@@ -1,6 +1,5 @@
 #pragma once
 #include "Timer.h"
-#include "GraphicsEngine.h"
 
 class GraphicsComponent
 {
