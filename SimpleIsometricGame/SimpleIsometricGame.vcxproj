@@ -155,14 +155,18 @@
   <ItemGroup>
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="GameModel.h" />
+    <ClInclude Include="GameView.h" />
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="GraphicsEngine.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridActor.h" />
     <ClInclude Include="InputController.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="SFMLGameView.h" />
     <ClInclude Include="SFMLGraphicsComponent.h" />
     <ClInclude Include="SFMLGraphicsEngine.h" />
     <ClInclude Include="SFMLInputController.h" />
+    <ClInclude Include="SFMLWindow.h" />
     <ClInclude Include="SimpleGameModel.h" />
     <ClInclude Include="SimpleGrid.h" />
     <ClInclude Include="SpriteSheetComponent.h" />
@@ -174,14 +178,18 @@
   <ItemGroup>
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="GameModel.cpp" />
+    <ClCompile Include="GameView.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="GraphicsEngine.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GridActor.cpp" />
     <ClCompile Include="InputController.cpp" />
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="SFMLGameView.cpp" />
     <ClCompile Include="SFMLGraphicsComponent.cpp" />
     <ClCompile Include="SFMLGraphicsEngine.cpp" />
     <ClCompile Include="SFMLInputController.cpp" />
+    <ClCompile Include="SFMLWindow.cpp" />
     <ClCompile Include="SimpleGameModel.cpp" />
     <ClCompile Include="SimpleGrid.cpp" />
     <ClCompile Include="SimpleIsometricGame.cpp" />

@@ -12,6 +12,6 @@ public:
 	~GameModel();
 	virtual void Init(shared_ptr<GraphicsEngine> graphics_engine);
 	virtual void Update();
-	virtual void Render();
+	virtual void Render(shared_ptr<Screen> screen);
 };
 

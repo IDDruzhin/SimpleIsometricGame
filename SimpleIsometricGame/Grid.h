@@ -20,7 +20,8 @@ public:
 	void SetCellsMap(vector<unsigned char> cells_map);
 	void RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const string &path);
 	virtual void GenerateRandomGrid(int seed = 123);
-	void Draw(shared_ptr<GraphicsEngine> graphics_engine);
+	void Draw(shared_ptr<Screen> screen);
+	//void Draw(shared_ptr<GraphicsEngine> graphics_engine);
 	float2 GridToScreen(float2 grid_pos);
 	float2 ScreenToGrid(float2 screen_pos);
 };

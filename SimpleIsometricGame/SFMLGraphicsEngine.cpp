@@ -4,18 +4,28 @@
 
 SFMLGraphicsEngine::SFMLGraphicsEngine()
 {
-	window_ = make_shared<sf::RenderWindow>(sf::VideoMode(1024, 768), "SimpleIsometricGame");
+	//window_ = make_shared<sf::RenderWindow>(sf::VideoMode(1024, 768), "SimpleIsometricGame");
 	//window_ = make_shared<sf::RenderWindow>(sf::VideoMode(100, 100), "SimpleIsometricGame");
 }
 
+/*
 SFMLGraphicsEngine::SFMLGraphicsEngine(uint2 size, string name)
 {
 	window_ = make_shared<sf::RenderWindow>(sf::VideoMode(size.x, size.y), name);
 }
-
+*/
 
 SFMLGraphicsEngine::~SFMLGraphicsEngine()
 {
+}
+
+shared_ptr<GraphicsEngine> SFMLGraphicsEngine::GetInstance()
+{
+	if (instance_ == nullptr)
+	{
+		instance_ = make_shared<SFMLGraphicsEngine>();
+	}
+	return instance_;
 }
 
 void SFMLGraphicsEngine::RegisterGraphicsResource(shared_ptr<GraphicsComponent>& graphics_component, const string & path)
@@ -58,6 +68,7 @@ void SFMLGraphicsEngine::RegisterGraphicsResource(shared_ptr<GraphicsComponent>&
 	sprite_sheet_component = move(sprite_sheet_component_tmp);
 }
 
+/*
 void SFMLGraphicsEngine::Draw(shared_ptr<GraphicsComponent> graphics_component)
 {
 	shared_ptr<SFMLGraphicsComponent> cur_graphics_component = dynamic_pointer_cast<SFMLGraphicsComponent>(graphics_component);
@@ -89,3 +100,4 @@ bool SFMLGraphicsEngine::IsRunning()
 {
 	return window_->isOpen();
 }
+*/

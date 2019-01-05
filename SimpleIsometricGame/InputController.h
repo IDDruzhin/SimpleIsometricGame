@@ -1,7 +1,8 @@
 #pragma once
-//#include "GameModel.h"
+#include "GameModel.h"
+#include "GameView.h"
 
-class GameModel;
+//class GameModel;
 
 class InputController
 {
