@@ -18,8 +18,8 @@ private:
 	//shared_ptr<sf::RenderWindow> window_;
 	unordered_map<string, GraphicsData> graphics_data_map_;
 	SFMLGraphicsEngine();
-	~SFMLGraphicsEngine();
 public:
+	~SFMLGraphicsEngine();
 	static shared_ptr<GraphicsEngine> GetInstance();
 	//SFMLGraphicsEngine();
 	//SFMLGraphicsEngine(uint2 size, string name);

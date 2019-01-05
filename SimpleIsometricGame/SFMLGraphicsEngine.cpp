@@ -23,7 +23,7 @@ shared_ptr<GraphicsEngine> SFMLGraphicsEngine::GetInstance()
 {
 	if (instance_ == nullptr)
 	{
-		instance_ = make_shared<SFMLGraphicsEngine>();
+		instance_ = shared_ptr<SFMLGraphicsEngine>(new SFMLGraphicsEngine());
 	}
 	return instance_;
 }

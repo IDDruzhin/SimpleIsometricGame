@@ -27,7 +27,7 @@ void GameModel::Update()
 
 void GameModel::Render(shared_ptr<Screen> screen)
 {
-	graphics_engine_->Clear();
+	screen->Clear();
 	grid_->Draw(screen);
-	graphics_engine_->Present();
+	screen->Present();
 }

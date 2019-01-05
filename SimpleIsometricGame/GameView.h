@@ -4,7 +4,7 @@
 #include "InputController.h"
 #include "GameModel.h"
 
-//class InputController;
+class InputController;
 
 class GameView
 {
