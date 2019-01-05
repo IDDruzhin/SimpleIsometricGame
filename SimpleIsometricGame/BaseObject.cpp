@@ -4,6 +4,8 @@
 
 BaseObject::BaseObject()
 {
+	screen_location_.x = 0;
+	screen_location_.y = 0;
 }
 
 

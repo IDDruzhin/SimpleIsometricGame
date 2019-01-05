@@ -27,5 +27,7 @@ void GameModel::Update()
 
 void GameModel::Render()
 {
+	graphics_engine_->Clear();
 	grid_->Draw(graphics_engine_);
+	graphics_engine_->Present();
 }

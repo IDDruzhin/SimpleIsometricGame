@@ -26,7 +26,7 @@ struct uint2
 
 struct Rect
 {
-	uint2 top_left;
+	uint2 left_top;
 	uint2 size;
 	Rect() {};
 };

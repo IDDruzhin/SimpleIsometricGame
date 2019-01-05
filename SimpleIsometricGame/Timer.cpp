@@ -14,6 +14,7 @@ Timer::~Timer()
 float Timer::GetElapsedSeconds()
 {
 	float elapsed_seconds = init_seconds_ + chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now() - start_).count() / 1000.0f;
+	return elapsed_seconds;
 }
 
 void Timer::Restart(float init_seconds)

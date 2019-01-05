@@ -58,8 +58,8 @@ void Grid::GenerateRandomGrid(int seed)
 	cells_map_.resize(dim_.x * dim_.y);
 	mt19937 gen;
 	gen.seed(seed);
-	uniform_int_distribution<unsigned char> dist(0, 1);
-	generate(cells_map_.begin(), cells_map_.end(), [&dist, gen]() { return dist(gen); });
+	uniform_int_distribution<int> dist(0, 1);
+	generate(cells_map_.begin(), cells_map_.end(), [&dist, &gen]() { return dist(gen); });
 }
 
 void Grid::Draw(shared_ptr<GraphicsEngine> graphics_engine)
@@ -80,6 +80,7 @@ void Grid::Draw(shared_ptr<GraphicsEngine> graphics_engine)
 				cell_screen_location.x += screen_location_.x;
 				cell_screen_location.y += screen_location_.y;
 				cells_graphics_->SetLocation(cell_screen_location);
+				//cells_graphics_->SetLocation(cell_grid_location);
 				graphics_engine->Draw(cells_graphics_);
 			}
 		}

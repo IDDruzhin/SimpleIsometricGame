@@ -45,9 +45,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="BaseObject.h">
       <Filter>Файлы заголовков\Objects</Filter>
     </ClInclude>
@@ -89,6 +86,9 @@
     </ClInclude>
     <ClInclude Include="SimpleGameModel.h">
       <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Файлы заголовков\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -50,8 +50,8 @@ Rect SpriteSheetComponent::GetCurRect()
 	uint2 cur_pos;
 	cur_pos.x = cur_index % sheet_info_->sheet_dim_x;
 	cur_pos.y = cur_index / sheet_info_->sheet_dim_x;
-	r.top_left.x = sheet_info_->window_size.x * cur_pos.x;
-	r.top_left.y = sheet_info_->window_size.y * cur_pos.y;
+	r.left_top.x = sheet_info_->window_size.x * cur_pos.x;
+	r.left_top.y = sheet_info_->window_size.y * cur_pos.y;
 	r.size = sheet_info_->window_size;
 	return r;
 }
