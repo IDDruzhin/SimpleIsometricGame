@@ -1,7 +1,7 @@
 #pragma once
 #include "GraphicsEngine.h"
 #include "SFMLGraphicsComponent.h"
-#include "SFMLInputController.h"
+//#include "SFMLInputController.h"
 #include <SFML/Graphics.hpp>
 
 struct GraphicsData

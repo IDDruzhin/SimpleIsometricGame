@@ -24,7 +24,7 @@ void SFMLGameView::Render()
 
 shared_ptr<InputController> SFMLGameView::GetCompatibleController()
 {
-	shared_ptr<SFMLInputController> compatible_controller;
+	shared_ptr<InputController> compatible_controller;
 	shared_ptr<SFMLWindow> window = dynamic_pointer_cast<SFMLWindow>(screen_);
 	if (window)
 	{

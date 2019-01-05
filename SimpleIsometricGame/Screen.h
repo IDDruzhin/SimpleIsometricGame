@@ -1,6 +1,6 @@
 #pragma once
 #include "GraphicsComponent.h"
-#include "InputController.h"
+//#include "InputController.h"
 
 class Screen
 {

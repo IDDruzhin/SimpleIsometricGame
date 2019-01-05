@@ -1,10 +1,10 @@
 #pragma once
 #include "GraphicsEngine.h"
 #include "Screen.h"
-//#include "InputController.h"
+#include "InputController.h"
 #include "GameModel.h"
 
-class InputController;
+//class InputController;
 
 class GameView
 {

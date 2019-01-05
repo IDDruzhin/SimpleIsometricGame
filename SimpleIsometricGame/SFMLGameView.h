@@ -2,8 +2,9 @@
 #include "GameView.h"
 #include "SFMLGraphicsEngine.h"
 #include "SFMLWindow.h"
+#include "SFMLInputController.h"
 
-class SFMLInputController;
+//class SFMLInputController;
 
 class SFMLGameView :
 	public GameView
