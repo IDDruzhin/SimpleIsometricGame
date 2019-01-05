@@ -8,6 +8,15 @@ struct float2
 	float x;
 	float y;
 	float2() {};
+	/*
+	float2(float _x, float _y) :x(_x), y(_y) {};
+	float2& operator=(const float2 &copy)
+	{
+		x = copy.x;
+		y = copy.y;
+		return *this;
+	}
+	*/
 };
 
 struct int2

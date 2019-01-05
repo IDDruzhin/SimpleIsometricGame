@@ -26,6 +26,11 @@ void SFMLGraphicsComponent::SetLocation(float2 location)
 	sprite_.setPosition(location.x, location.y);
 }
 
+void SFMLGraphicsComponent::SetScale(float scale)
+{
+	sprite_.setScale(scale,scale);
+}
+
 void SFMLGraphicsComponent::SetOrigin(int2 origin)
 {
 	sprite_.setOrigin(origin.x, origin.y);
@@ -34,6 +39,17 @@ void SFMLGraphicsComponent::SetOrigin(int2 origin)
 void SFMLGraphicsComponent::SetSpriteRect(Rect r)
 {
 	sprite_.setTextureRect(sf::IntRect(r.left_top.x, r.left_top.y, r.size.x, r.size.y));
+}
+
+Rect SFMLGraphicsComponent::GetSpriteRect()
+{
+	sf::IntRect tmp = sprite_.getTextureRect();
+	Rect r;
+	r.left_top.x = tmp.left;
+	r.left_top.y = tmp.top;
+	r.size.x = tmp.width;
+	r.size.y = tmp.height;
+	return r;
 }
 
 sf::Sprite SFMLGraphicsComponent::GetSprite()
