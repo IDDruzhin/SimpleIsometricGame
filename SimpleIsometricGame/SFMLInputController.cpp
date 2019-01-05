@@ -4,6 +4,7 @@
 
 SFMLInputController::SFMLInputController(shared_ptr<sf::RenderWindow> window) : window_(window)
 {
+	//game_view_ = game_view;
 }
 
 SFMLInputController::~SFMLInputController()
