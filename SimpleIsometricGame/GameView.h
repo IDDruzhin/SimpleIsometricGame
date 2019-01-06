@@ -19,5 +19,6 @@ public:
 	virtual shared_ptr<InputController> GetCompatibleController() = 0;
 	void SetModel(shared_ptr<GameModel> model);
 	bool IsRunning();
+	virtual void Zoom(float factor);
 };
 

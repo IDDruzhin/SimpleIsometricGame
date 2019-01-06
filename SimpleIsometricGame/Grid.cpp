@@ -117,3 +117,12 @@ float2 Grid::ScreenToGrid(float2 screen_pos)
 	grid_pos.y = (2 * screen_pos.y - screen_pos.x) / 2.0f;
 	return grid_pos;
 }
+
+float2 Grid::GetGridCenter()
+{
+	float2 center;
+	center.x = dim_.x / 2.0f;
+	center.y = dim_.y / 2.0f;
+	center = GridToScreen(center);
+	return center;
+}

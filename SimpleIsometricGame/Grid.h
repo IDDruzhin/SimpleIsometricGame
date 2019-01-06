@@ -24,5 +24,6 @@ public:
 	//void Draw(shared_ptr<GraphicsEngine> graphics_engine);
 	float2 GridToScreen(float2 grid_pos);
 	float2 ScreenToGrid(float2 screen_pos);
+	float2 GetGridCenter();
 };
 

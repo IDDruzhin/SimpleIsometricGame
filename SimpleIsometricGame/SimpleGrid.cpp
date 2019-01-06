@@ -6,6 +6,8 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 {
 	dim_.x = 30;
 	dim_.y = 30;
+	//dim_.x = 10;
+	//dim_.y = 10;
 	//string cell_texture_path = "Content/isometric_pixel_0087.png";
 	//string cell_texture_path = "Content/isometric_pixel_0200.png";
 	string cell_texture_path = "Content/abstractTile_21.png";

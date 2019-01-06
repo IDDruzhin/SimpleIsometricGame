@@ -5,6 +5,7 @@
 SFMLInputController::SFMLInputController(shared_ptr<sf::RenderWindow> window) : window_(window)
 {
 	//game_view_ = game_view;
+	zoom_ratio_ = 0.1f;
 }
 
 SFMLInputController::~SFMLInputController()
@@ -18,12 +19,24 @@ void SFMLInputController::Update()
 	{
 		if (e.type == sf::Event::Closed)
 			window_->close();
-		if (e.type == sf::Event::MouseButtonReleased)
+		else if (e.type == sf::Event::MouseWheelScrolled)
 		{
+			//cout << e.mouseWheelScroll.delta << endl;
+			game_view_->Zoom(1.0f + zoom_ratio_ * e.mouseWheelScroll.delta);
+		}
+		else if (e.type == sf::Event::MouseButtonPressed)
+		{
+			sf::Vector2i screen(e.mouseButton.x, e.mouseButton.y);
+			sf::Vector2f wrld = window_->mapPixelToCoords(screen);
 			switch (e.key.code)
 			{
 			case sf::Mouse::Right:
-				cout << "RightMouse" << endl;
+				cout << "Screen:" << endl;
+				cout << e.mouseButton.x << endl;
+				cout << e.mouseButton.y << endl;
+				cout << "World:" << endl;
+				cout << wrld.x << endl;
+				cout << wrld.y << endl;
 			default:
 				break;
 			}

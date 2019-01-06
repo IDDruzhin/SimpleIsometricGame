@@ -15,5 +15,7 @@ public:
 	void Clear();
 	void Present();
 	bool IsRunning();
+	virtual void Zoom(float factor);
+	virtual void SetCenter(float2 center);
 };
 

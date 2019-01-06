@@ -13,5 +13,6 @@ public:
 	virtual void Init(shared_ptr<GraphicsEngine> graphics_engine);
 	virtual void Update();
 	virtual void Render(shared_ptr<Screen> screen);
+	float2 GetGridCeneter();
 };
 

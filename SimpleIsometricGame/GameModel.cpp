@@ -31,3 +31,8 @@ void GameModel::Render(shared_ptr<Screen> screen)
 	grid_->Draw(screen);
 	screen->Present();
 }
+
+float2 GameModel::GetGridCeneter()
+{
+	return grid_->GetGridCenter();
+}

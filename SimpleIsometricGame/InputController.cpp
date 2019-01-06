@@ -24,3 +24,8 @@ void InputController::SetGameView(shared_ptr<GameView> game_view)
 void InputController::Update()
 {
 }
+
+void InputController::SetZoomRatio(float ratio)
+{
+	zoom_ratio_ = ratio;
+}
