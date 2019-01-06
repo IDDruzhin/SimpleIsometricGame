@@ -27,16 +27,18 @@ void SFMLInputController::Update()
 		else if (e.type == sf::Event::MouseButtonPressed)
 		{
 			sf::Vector2i screen(e.mouseButton.x, e.mouseButton.y);
-			sf::Vector2f wrld = window_->mapPixelToCoords(screen);
+			sf::Vector2f world_pos = window_->mapPixelToCoords(screen);
+			//float2 grid_pos = game_model_->
 			switch (e.key.code)
 			{
 			case sf::Mouse::Right:
+				game_model_->ToggleGridBlockMask(float2(world_pos.x,world_pos.y));
 				cout << "Screen:" << endl;
 				cout << e.mouseButton.x << endl;
 				cout << e.mouseButton.y << endl;
 				cout << "World:" << endl;
-				cout << wrld.x << endl;
-				cout << wrld.y << endl;
+				cout << world_pos.x << endl;
+				cout << world_pos.y << endl;
 			default:
 				break;
 			}

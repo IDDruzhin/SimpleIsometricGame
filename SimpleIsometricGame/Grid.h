@@ -30,5 +30,10 @@ public:
 	float2 GridToScreen(float2 grid_pos);
 	float2 ScreenToGrid(float2 screen_pos);
 	float2 GetGridCenter();
+	bool IsInsideGrid(float2 grid_pos);
+	bool CheckBlockMask(int2 pos);
+	void SetBlockMask(int2 pos, bool block);
+	void SetEmployMask(int2 pos);
+	void SetKillzoneMask(int2 pos);
 };
 

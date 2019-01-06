@@ -36,3 +36,15 @@ float2 GameModel::GetGridCeneter()
 {
 	return grid_->GetGridCenter();
 }
+
+void GameModel::ToggleGridBlockMask(float2 screen_pos)
+{
+	float2 grid_pos = grid_->ScreenToGrid(screen_pos);
+	cout << "Grid pos:" << grid_pos.x << " " << grid_pos.y << endl;
+	if (grid_->IsInsideGrid(grid_pos))
+	{
+		int2 cell_pos = int2(grid_pos.x, grid_pos.y);
+		bool block = grid_->CheckBlockMask(cell_pos);
+		grid_->SetBlockMask(cell_pos, !block);
+	}
+}

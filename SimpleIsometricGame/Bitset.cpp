@@ -33,18 +33,26 @@ void Bitset::Clear(bool val)
 	}
 }
 
-void Bitset::Set(int index)
+void Bitset::Set(uint index, bool val)
 {
-	if (index >= 0 && index < size_)
+	if (index < size_)
 	{
 		int bit_pos = 1 << (index % (sizeof(uint) * 8));
-		data_[index / (sizeof(uint) * 8)] |= bit_pos;
+		if (val)
+		{
+			data_[index / (sizeof(uint) * 8)] |= bit_pos;
+		}
+		else
+		{
+			bit_pos = ~bit_pos;
+			data_[index / (sizeof(uint) * 8)] &= bit_pos;
+		}
 	}
 }
 
-bool Bitset::Get(int index)
+bool Bitset::Get(uint index)
 {
-	if (index >= 0 && index < size_)
+	if (index < size_)
 	{
 		int bit_pos = 1 << (index % (sizeof(uint) * 8));
 		return (bit_pos & data_[index / (sizeof(uint) * 8)]);

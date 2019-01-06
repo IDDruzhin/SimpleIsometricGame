@@ -14,5 +14,6 @@ public:
 	virtual void Update();
 	virtual void Render(shared_ptr<Screen> screen);
 	float2 GetGridCeneter();
+	void ToggleGridBlockMask(float2 screen_pos);
 };
 

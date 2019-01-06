@@ -10,8 +10,8 @@ public:
 	~Bitset();
 	void Resize(uint n);
 	void Clear(bool val = false);
-	void Set(int index);
-	bool Get(int index);
+	void Set(uint index, bool val);
+	bool Get(uint index);
 	//Bitset& operator=(const Bitset& copy);
 	Bitset& operator|=(const Bitset& right);
 };

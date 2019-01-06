@@ -94,7 +94,8 @@ void Grid::GenerateRandomGrid(int seed)
 	{
 		if (dist(gen))
 		{
-			block_mask_.Set(i);
+			//SetBlockMask(i, true);
+			block_mask_.Set(i, true);
 		}
 	}
 	//uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->);
@@ -123,8 +124,8 @@ void Grid::Draw(shared_ptr<Screen> screen)
 					cell_grid_location.x = x;
 					cell_grid_location.y = y;
 					cell_screen_location = GridToScreen(cell_grid_location);
-					cell_screen_location.x += screen_location_.x;
-					cell_screen_location.y += screen_location_.y;
+					//cell_screen_location.x += screen_location_.x;
+					//cell_screen_location.y += screen_location_.y;
 					graphics_component_->SetLocation(cell_screen_location);
 					screen->Draw(graphics_component_);
 				}
@@ -147,8 +148,8 @@ void Grid::Draw(shared_ptr<Screen> screen)
 					cell_grid_location.x = x;
 					cell_grid_location.y = y;
 					cell_screen_location = GridToScreen(cell_grid_location);
-					cell_screen_location.x += screen_location_.x;
-					cell_screen_location.y += screen_location_.y;
+					//cell_screen_location.x += screen_location_.x;
+					//cell_screen_location.y += screen_location_.y;
 					graphics_component_->SetLocation(cell_screen_location);
 					screen->Draw(graphics_component_);
 				}
@@ -164,16 +165,25 @@ float2 Grid::GridToScreen(float2 grid_pos)
 	screen_pos.x = grid_pos.x - grid_pos.y;
 	screen_pos.y = (grid_pos.x + grid_pos.y) / 2.0f;
 	*/
-	screen_pos.x = (grid_pos.x - grid_pos.y) * cell_offset_.x;
-	screen_pos.y = (grid_pos.x + grid_pos.y) * cell_offset_.y;
+	//grid_pos.x -= screen_location_.x;
+	//grid_pos.y -= screen_location_.y;
+	screen_pos.x = screen_location_.x + (grid_pos.x - grid_pos.y) * cell_offset_.x;
+	screen_pos.y = screen_location_.y + (grid_pos.x + grid_pos.y) * cell_offset_.y;
 	return screen_pos;
 }
 
 float2 Grid::ScreenToGrid(float2 screen_pos)
 {
 	float2 grid_pos;
+	/*
 	grid_pos.x = (2 * screen_pos.y + screen_pos.x) / 2.0f;
 	grid_pos.y = (2 * screen_pos.y - screen_pos.x) / 2.0f;
+	*/
+	screen_pos.x -= screen_location_.x;
+	screen_pos.y -= screen_location_.y;
+	screen_pos.x -= cell_offset_.x;
+	grid_pos.x = (screen_pos.x / cell_offset_.x + screen_pos.y / cell_offset_.y) / 2.0f;
+	grid_pos.y = (screen_pos.y / cell_offset_.y - (screen_pos.x / cell_offset_.x)) / 2.0f;
 	return grid_pos;
 }
 
@@ -185,3 +195,37 @@ float2 Grid::GetGridCenter()
 	center = GridToScreen(center);
 	return center;
 }
+
+bool Grid::IsInsideGrid(float2 grid_pos)
+{
+	if (grid_pos.x >= 0 && grid_pos.x <= dim_.x && grid_pos.y >= 0 && grid_pos.y <= dim_.y)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Grid::CheckBlockMask(int2 pos)
+{
+	uint index = pos.y * dim_.x + pos.x;
+	return block_mask_.Get(index);
+}
+
+void Grid::SetBlockMask(int2 pos, bool block)
+{
+	uint index = pos.y * dim_.x + pos.x;
+	block_mask_.Set(index, block);
+}
+
+void Grid::SetEmployMask(int2 pos)
+{
+	uint index = (pos.y + 1) * (dim_.x + 1) + (pos.x + 1);
+	employ_mask_.Set(index, true);
+}
+
+void Grid::SetKillzoneMask(int2 pos)
+{
+	uint index = pos.y * dim_.x + pos.x;
+	killzone_mask_.Set(index, true);
+}
+
