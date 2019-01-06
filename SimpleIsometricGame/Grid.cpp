@@ -6,6 +6,7 @@ Grid::Grid()
 {
 }
 
+/*
 Grid::Grid(uint2 dim, float2 cell_offset, shared_ptr<GraphicsEngine> graphics_engine, const string &cell_texture_path)
 {
 	dim_ = dim;
@@ -13,8 +14,9 @@ Grid::Grid(uint2 dim, float2 cell_offset, shared_ptr<GraphicsEngine> graphics_en
 	block_mask_.Resize(size);
 	block_mask_.Clear(true);
 	cell_offset_ = cell_offset;
-	RegisterCellsGraphics(graphics_engine, cell_texture_path);
+	//RegisterCellsGraphics(graphics_engine, cell_texture_path);
 }
+*/
 
 Grid::~Grid()
 {
@@ -25,6 +27,13 @@ void Grid::SetDim(uint2 dim)
 	dim_ = dim;
 	uint size = dim_.x*dim_.y;
 	block_mask_.Resize(size);
+	killzone_mask_.Resize(size);
+	if (sprite_sheet_component_)
+	{
+		cells_map_.resize(size,0);
+	}
+	size = (dim_.x+1)*(dim_.y+1);
+	employ_mask_.Resize(size);
 }
 
 uint2 Grid::GetDim()
@@ -35,6 +44,14 @@ uint2 Grid::GetDim()
 void Grid::SetCellOffset(float2 cell_offset)
 {
 	cell_offset_ = cell_offset;
+}
+
+void Grid::SetCellOffset(float tile_width)
+{
+	float scale = tile_width / graphics_component_->GetSpriteRect().size.x;
+	graphics_component_->SetScale(scale);
+	cell_offset_.x = scale * graphics_component_->GetSpriteRect().size.x / 2.0f;
+	cell_offset_.y = scale * graphics_component_->GetSpriteRect().size.y / 4.0f;
 }
 
 float2 Grid::GetCellOffset()
@@ -52,10 +69,17 @@ void Grid::SetCellsMap(vector<unsigned char> cells_map)
 }
 */
 
-void Grid::RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const string &path)
+/*
+void Grid::RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path)
 {
 	graphics_engine->RegisterGraphicsResource(graphics_component_, path);
 }
+
+void Grid::RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path, SheetInfo sheet_info)
+{
+	graphics_engine->RegisterGraphicsResource(graphics_component_, sprite_sheet_component_, path, sheet_info);
+}
+*/
 
 void Grid::GenerateRandomGrid(int seed)
 {
@@ -73,6 +97,12 @@ void Grid::GenerateRandomGrid(int seed)
 			block_mask_.Set(i);
 		}
 	}
+	//uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->);
+	if (sprite_sheet_component_)
+	{
+		uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->GetTilesCount());
+		generate(cells_map_.begin(), cells_map_.end(), [&sprite_dist, &gen]() { return sprite_dist(gen); });
+	}
 	//generate(cells_map_.begin(), cells_map_.end(), [&dist, &gen]() { return dist(gen); });
 }
 
@@ -81,32 +111,47 @@ void Grid::Draw(shared_ptr<Screen> screen)
 	int index;
 	float2 cell_grid_location;
 	float2 cell_screen_location;
-	for (int y = 0; y < dim_.y; y++)
+	if (sprite_sheet_component_ == nullptr)
 	{
-		for (int x = 0; x < dim_.x; x++)
+		for (int y = 0; y < dim_.y; y++)
 		{
-			index = y * dim_.x + x;
-			if (block_mask_.Get(index))
+			for (int x = 0; x < dim_.x; x++)
 			{
-				/*
-				cell_grid_location.x = x * cell_size_;
-				cell_grid_location.y = y * cell_size_;
-				cell_screen_location = GridToScreen(cell_grid_location);
-				cell_screen_location.x += screen_location_.x;
-				cell_screen_location.y += screen_location_.y;
-				cells_graphics_->SetLocation(cell_screen_location);
-				//cells_graphics_->SetLocation(cell_grid_location);
-				graphics_engine->Draw(cells_graphics_);
-				*/
-				cell_grid_location.x = x;
-				cell_grid_location.y = y;
-				cell_screen_location = GridToScreen(cell_grid_location);
-				cell_screen_location.x += screen_location_.x;
-				cell_screen_location.y += screen_location_.y;
-				graphics_component_->SetLocation(cell_screen_location);
-				//cells_graphics_->SetLocation(cell_grid_location);
-				//graphics_engine->Draw(cells_graphics_);
-				screen->Draw(graphics_component_);
+				index = y * dim_.x + x;
+				if (block_mask_.Get(index))
+				{
+					cell_grid_location.x = x;
+					cell_grid_location.y = y;
+					cell_screen_location = GridToScreen(cell_grid_location);
+					cell_screen_location.x += screen_location_.x;
+					cell_screen_location.y += screen_location_.y;
+					graphics_component_->SetLocation(cell_screen_location);
+					screen->Draw(graphics_component_);
+				}
+			}
+		}
+	}
+	else
+	{
+		for (int y = 0; y < dim_.y; y++)
+		{
+			for (int x = 0; x < dim_.x; x++)
+			{
+				index = y * dim_.x + x;
+				if (block_mask_.Get(index))
+				{
+					if (sprite_sheet_component_->SetState(cells_map_[index]))
+					{
+						graphics_component_->SetSpriteRect(sprite_sheet_component_->GetCurRect());
+					}
+					cell_grid_location.x = x;
+					cell_grid_location.y = y;
+					cell_screen_location = GridToScreen(cell_grid_location);
+					cell_screen_location.x += screen_location_.x;
+					cell_screen_location.y += screen_location_.y;
+					graphics_component_->SetLocation(cell_screen_location);
+					screen->Draw(graphics_component_);
+				}
 			}
 		}
 	}

@@ -11,6 +11,10 @@ DrawableObject::~DrawableObject()
 {
 }
 
+void DrawableObject::RegisterGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path, shared_ptr<SheetInfo> sheet_info)
+{
+}
+
 void DrawableObject::Draw(shared_ptr<Screen> screen)
 {
 	screen->Draw(graphics_component_);

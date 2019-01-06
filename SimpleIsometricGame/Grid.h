@@ -10,18 +10,20 @@ protected:
 	Bitset block_mask_;
 	Bitset employ_mask_;
 	Bitset killzone_mask_;
-	//vector<unsigned char> cells_map_;
+	vector<unsigned char> cells_map_;
 	//shared_ptr<GraphicsComponent> cells_graphics_;
 public:
 	Grid();
-	Grid(uint2 dim, float2 cell_tile_size, shared_ptr<GraphicsEngine> graphics_engine, const string &cell_texture_path);
+	//Grid(uint2 dim, float2 cell_tile_size, shared_ptr<GraphicsEngine> graphics_engine, const string &cell_texture_path);
 	~Grid();
 	void SetDim(uint2 dim);
 	uint2 GetDim();
 	void SetCellOffset(float2 cell_offset);
+	void SetCellOffset(float tile_width);
 	float2 GetCellOffset();
-	void SetCellsMap(vector<unsigned char> cells_map);
-	void RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const string &path);
+	//void SetCellsMap(vector<unsigned char> cells_map);
+	//void RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path);
+	//void RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path, shared_ptr<SheetInfo> sheet_info);
 	virtual void GenerateRandomGrid(int seed = 123);
 	virtual void Draw(shared_ptr<Screen> screen);
 	//void Draw(shared_ptr<GraphicsEngine> graphics_engine);

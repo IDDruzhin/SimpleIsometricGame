@@ -6,6 +6,7 @@ struct SheetInfo
 	uint2 window_size;
 	uint sheet_dim_x;
 	vector<uint2> sheet_intervals; //x - start pos, y - frames count
+	SheetInfo() {};
 };
 
 class SpriteSheetComponent
@@ -23,5 +24,6 @@ public:
 	bool SetState(uint state);
 	bool NextFrame();
 	Rect GetCurRect();
+	uint GetTilesCount();
 };
 

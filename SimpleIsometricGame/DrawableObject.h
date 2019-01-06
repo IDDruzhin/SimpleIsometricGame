@@ -11,6 +11,7 @@ protected:
 public:
 	DrawableObject();
 	~DrawableObject();
+	virtual void RegisterGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path, shared_ptr<SheetInfo> sheet_info = nullptr);
 	virtual void Draw(shared_ptr<Screen> screen);
 	virtual void UpdateSprite(uint cur_state_);
 };

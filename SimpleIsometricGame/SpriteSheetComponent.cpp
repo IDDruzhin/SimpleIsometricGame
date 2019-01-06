@@ -2,7 +2,7 @@
 #include "SpriteSheetComponent.h"
 
 
-SpriteSheetComponent::SpriteSheetComponent()
+SpriteSheetComponent::SpriteSheetComponent() :cur_state_(0), cur_frame_(0), play_rate_(1)
 {
 }
 
@@ -54,4 +54,9 @@ Rect SpriteSheetComponent::GetCurRect()
 	r.left_top.y = sheet_info_->window_size.y * cur_pos.y;
 	r.size = sheet_info_->window_size;
 	return r;
+}
+
+uint SpriteSheetComponent::GetTilesCount()
+{
+	return sheet_info_->sheet_intervals.size();
 }

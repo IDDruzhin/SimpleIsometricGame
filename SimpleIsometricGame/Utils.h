@@ -8,6 +8,7 @@ struct float2
 	float x;
 	float y;
 	float2() {};
+	float2(float _x, float _y) :x(_x), y(_y) {};
 	/*
 	float2(float _x, float _y) :x(_x), y(_y) {};
 	float2& operator=(const float2 &copy)
@@ -24,6 +25,7 @@ struct int2
 	int x;
 	int y;
 	int2() {};
+	int2(int _x, int _y) :x(_x), y(_y) {};
 };
 
 struct uint2
@@ -31,6 +33,7 @@ struct uint2
 	uint x;
 	uint y;
 	uint2() {};
+	uint2(uint _x, uint _y) :x(_x), y(_y) {};
 };
 
 struct Rect
