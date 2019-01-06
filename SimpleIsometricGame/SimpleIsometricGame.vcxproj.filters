@@ -91,15 +91,18 @@
       <Filter>Файлы заголовков\Misc</Filter>
     </ClInclude>
     <ClInclude Include="GameView.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="SFMLGameView.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
     <ClInclude Include="Screen.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="SFMLGameView.h">
+      <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
     <ClInclude Include="SFMLWindow.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableObject.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -153,15 +156,18 @@
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
     <ClCompile Include="GameView.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="SFMLGameView.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
     <ClCompile Include="Screen.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SFMLGameView.cpp">
+      <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
     <ClCompile Include="SFMLWindow.cpp">
+      <Filter>Исходные файлы\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableObject.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,14 +1,13 @@
 #pragma once
-#include "BaseObject.h"
-#include "GraphicsComponent.h"
+#include "DrawableObject.h"
 class Grid :
-	public BaseObject
+	public DrawableObject
 {
 protected:
 	uint2 dim_;
 	float2 cell_offset_;
 	vector<unsigned char> cells_map_;
-	shared_ptr<GraphicsComponent> cells_graphics_;
+	//shared_ptr<GraphicsComponent> cells_graphics_;
 public:
 	Grid();
 	Grid(uint2 dim, float2 cell_tile_size, shared_ptr<GraphicsEngine> graphics_engine, const string &cell_texture_path);

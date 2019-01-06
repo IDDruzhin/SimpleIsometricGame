@@ -17,10 +17,10 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 	cell_offset_.x = tile_width / 2.0f;
 	cell_offset_.y = cell_offset_.x / 2.0f;
 	*/
-	float scale = tile_width / cells_graphics_->GetSpriteRect().size.x;
-	cells_graphics_->SetScale(scale);
-	cell_offset_.x = scale * cells_graphics_->GetSpriteRect().size.x / 2.0f;
-	cell_offset_.y = scale * cells_graphics_->GetSpriteRect().size.y / 4.0f;
+	float scale = tile_width / graphics_component_->GetSpriteRect().size.x;
+	graphics_component_->SetScale(scale);
+	cell_offset_.x = scale * graphics_component_->GetSpriteRect().size.x / 2.0f;
+	cell_offset_.y = scale * graphics_component_->GetSpriteRect().size.y / 4.0f;
 	cells_map_.resize(dim_.x*dim_.y,1);
 	//GenerateRandomGrid(999);
 }

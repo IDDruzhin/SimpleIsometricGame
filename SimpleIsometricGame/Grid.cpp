@@ -6,7 +6,6 @@ Grid::Grid()
 {
 }
 
-
 Grid::Grid(uint2 dim, float2 cell_offset, shared_ptr<GraphicsEngine> graphics_engine, const string &cell_texture_path)
 {
 	dim_ = dim;
@@ -50,7 +49,7 @@ void Grid::SetCellsMap(vector<unsigned char> cells_map)
 
 void Grid::RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const string &path)
 {
-	graphics_engine->RegisterGraphicsResource(cells_graphics_, path);
+	graphics_engine->RegisterGraphicsResource(graphics_component_, path);
 }
 
 void Grid::GenerateRandomGrid(int seed)
@@ -89,10 +88,10 @@ void Grid::Draw(shared_ptr<Screen> screen)
 				cell_screen_location = GridToScreen(cell_grid_location);
 				cell_screen_location.x += screen_location_.x;
 				cell_screen_location.y += screen_location_.y;
-				cells_graphics_->SetLocation(cell_screen_location);
+				graphics_component_->SetLocation(cell_screen_location);
 				//cells_graphics_->SetLocation(cell_grid_location);
 				//graphics_engine->Draw(cells_graphics_);
-				screen->Draw(cells_graphics_);
+				screen->Draw(graphics_component_);
 			}
 		}
 	}
