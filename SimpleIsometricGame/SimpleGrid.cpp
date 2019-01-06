@@ -21,7 +21,9 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 	graphics_component_->SetScale(scale);
 	cell_offset_.x = scale * graphics_component_->GetSpriteRect().size.x / 2.0f;
 	cell_offset_.y = scale * graphics_component_->GetSpriteRect().size.y / 4.0f;
-	cells_map_.resize(dim_.x*dim_.y,1);
+	//cells_map_.resize(dim_.x*dim_.y,1);
+	block_mask_.Resize(dim_.x*dim_.y);
+	block_mask_.Clear(true);
 	//GenerateRandomGrid(999);
 }
 

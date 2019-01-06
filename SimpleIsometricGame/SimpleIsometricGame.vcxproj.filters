@@ -105,6 +105,9 @@
     <ClInclude Include="DrawableObject.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Bitset.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -168,6 +171,9 @@
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
     <ClCompile Include="DrawableObject.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitset.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

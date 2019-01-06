@@ -9,8 +9,10 @@ Grid::Grid()
 Grid::Grid(uint2 dim, float2 cell_offset, shared_ptr<GraphicsEngine> graphics_engine, const string &cell_texture_path)
 {
 	dim_ = dim;
+	uint size = dim_.x*dim_.y;
+	block_mask_.Resize(size);
+	block_mask_.Clear(true);
 	cell_offset_ = cell_offset;
-	cells_map_.resize(dim_.x*dim_.y,1);
 	RegisterCellsGraphics(graphics_engine, cell_texture_path);
 }
 
@@ -21,7 +23,8 @@ Grid::~Grid()
 void Grid::SetDim(uint2 dim)
 {
 	dim_ = dim;
-	cells_map_.resize(dim_.x*dim_.y);
+	uint size = dim_.x*dim_.y;
+	block_mask_.Resize(size);
 }
 
 uint2 Grid::GetDim()
@@ -39,6 +42,7 @@ float2 Grid::GetCellOffset()
 	return cell_offset_;
 }
 
+/*
 void Grid::SetCellsMap(vector<unsigned char> cells_map)
 {
 	if (cells_map.size() == dim_.x * dim_.y)
@@ -46,6 +50,7 @@ void Grid::SetCellsMap(vector<unsigned char> cells_map)
 		cells_map_ = cells_map;
 	}
 }
+*/
 
 void Grid::RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, const string &path)
 {
@@ -54,11 +59,21 @@ void Grid::RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, con
 
 void Grid::GenerateRandomGrid(int seed)
 {
-	cells_map_.resize(dim_.x * dim_.y);
+	//cells_map_.resize(dim_.x * dim_.y);
+	uint size = dim_.x * dim_.y;
+	block_mask_.Clear();
+	block_mask_.Resize(size);
 	mt19937 gen;
 	gen.seed(seed);
 	uniform_int_distribution<int> dist(0, 1);
-	generate(cells_map_.begin(), cells_map_.end(), [&dist, &gen]() { return dist(gen); });
+	for (int i = 0; i < size; i++)
+	{
+		if (dist(gen))
+		{
+			block_mask_.Set(i);
+		}
+	}
+	//generate(cells_map_.begin(), cells_map_.end(), [&dist, &gen]() { return dist(gen); });
 }
 
 void Grid::Draw(shared_ptr<Screen> screen)
@@ -71,7 +86,7 @@ void Grid::Draw(shared_ptr<Screen> screen)
 		for (int x = 0; x < dim_.x; x++)
 		{
 			index = y * dim_.x + x;
-			if (cells_map_[index] > 0)
+			if (block_mask_.Get(index))
 			{
 				/*
 				cell_grid_location.x = x * cell_size_;
