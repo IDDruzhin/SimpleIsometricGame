@@ -9,12 +9,18 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 	//string cell_texture_path = "Content/isometric_pixel_0087.png";
 	//string cell_texture_path = "Content/isometric_pixel_0200.png";
 	//string cell_texture_path = "Content/abstractTile_21.png";
-	string cells_texture_path = "Content/Blocks_sheet.png"; 
+	//string cells_texture_path = "Content/Blocks_sheet.png";
+	string cells_texture_path = "Content/Blocks_sheet_001.png"; 
 	shared_ptr<SheetInfo> sheet_info = make_shared<SheetInfo>();
 	sheet_info->sheet_dim_x = 5;
 	sheet_info->window_size.x = 111;
 	sheet_info->window_size.y = 128;
+	int tiles_count = 10;
+	/*
+	sheet_info->window_size.x = 112;
+	sheet_info->window_size.y = 129;
 	int tiles_count = 20;
+	*/
 	for (int i = 0; i < tiles_count; i++)
 	{
 		sheet_info->sheet_intervals.push_back(uint2(i, 0));
@@ -24,8 +30,9 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 	graphics_engine->RegisterGraphicsResource(graphics_component_, sprite_sheet_component_, cells_texture_path, sheet_info);
 	float tile_width = 64;
 	SetCellOffset(tile_width);
-	SetDim(uint2(30, 30));
+	SetDim(uint2(10, 10));
 	block_mask_.Clear(true);
+	//fill(cells_map_.begin(), cells_map_.end(), 22);
 	GenerateRandomGrid();
 	//fill(cells_map_.begin(), cells_map_.end(), 0);
 	/*

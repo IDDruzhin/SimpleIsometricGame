@@ -100,7 +100,7 @@ void Grid::GenerateRandomGrid(int seed)
 	//uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->);
 	if (sprite_sheet_component_)
 	{
-		uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->GetTilesCount());
+		uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->GetTilesCount()-1);
 		generate(cells_map_.begin(), cells_map_.end(), [&sprite_dist, &gen]() { return sprite_dist(gen); });
 	}
 	//generate(cells_map_.begin(), cells_map_.end(), [&dist, &gen]() { return dist(gen); });
