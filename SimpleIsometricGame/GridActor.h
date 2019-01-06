@@ -1,15 +1,16 @@
 #pragma once
-#include "BaseObject.h"
+#include "DrawableObject.h"
+#include "Grid.h"
 class GridActor :
-	public BaseObject
+	public DrawableObject
 {
 protected:
 	float2 grid_location_;
-	//shared_ptr<GraphicsComponent> CGraphics;
+	shared_ptr<Grid> grid_;
 public:
 	GridActor();
 	~GridActor();
-	void SetGridCellLocation(int2 grid_location);
-	int2 GetGridCellLocation();
+	void SetGridCellLocation(float2 grid_location);
+	float2 GetGridCellLocation();
 };
 

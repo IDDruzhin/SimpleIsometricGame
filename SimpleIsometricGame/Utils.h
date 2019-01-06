@@ -42,3 +42,13 @@ struct Rect
 	uint2 size;
 	Rect() {};
 };
+
+float Dot(float2 v1, float2 v2)
+{
+	return (v1.x*v2.x + v1.y*v2.y);
+}
+
+float Norm(float2 v)
+{
+	return sqrt(Dot(v, v));
+}

@@ -2,7 +2,7 @@
 #include "BaseObject.h"
 
 
-BaseObject::BaseObject()
+BaseObject::BaseObject():is_active_(true)
 {
 	screen_location_.x = 0;
 	screen_location_.y = 0;
@@ -25,5 +25,10 @@ float2 BaseObject::GetScreenLocation()
 
 void BaseObject::Update()
 {
+}
+
+bool BaseObject::IsActive()
+{
+	return is_active_;
 }
 

@@ -211,6 +211,12 @@ bool Grid::CheckBlockMask(int2 pos)
 	return block_mask_.Get(index);
 }
 
+bool Grid::CheckEmployMask(int2 pos)
+{
+	uint index = (pos.y + 1) * (dim_.x + 1) + (pos.x + 1);
+	return employ_mask_.Get(index);
+}
+
 void Grid::SetBlockMask(int2 pos, bool block)
 {
 	uint index = pos.y * dim_.x + pos.x;
