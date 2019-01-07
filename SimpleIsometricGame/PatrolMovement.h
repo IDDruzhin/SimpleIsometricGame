@@ -1,11 +1,12 @@
 #pragma once
-#include "MovementComponent.h"
+#include "UnitMovementComponent.h"
 class PatrolMovement :
-	public MovementComponent
+	public UnitMovementComponent
 {
 protected:
-	int2 first_;
-	int2 second_;
+	//int2 first_;
+	//int2 second_;
+	int2 start_;
 	float wait_time_;
 	Timer timer_;
 public:

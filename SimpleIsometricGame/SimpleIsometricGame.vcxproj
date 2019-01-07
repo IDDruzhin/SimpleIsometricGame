@@ -180,6 +180,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Unit.h" />
+    <ClInclude Include="UnitMovementComponent.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +216,7 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="UnitMovementComponent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
