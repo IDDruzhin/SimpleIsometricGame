@@ -29,6 +29,7 @@ bool UnitMovementComponent::FinishAtDestination(float2 &location)
 	{
 		location.x = tmp.x;
 		location.y = tmp.y;
+		//is_moving_ = false;
 		return true;
 	}
 	return false;
@@ -40,5 +41,22 @@ void UnitMovementComponent::UpdateMovement(shared_ptr<Grid> grid)
 	{
 		is_moving_ = false;
 	}
+}
+
+void UnitMovementComponent::Move(shared_ptr<Grid> grid, float2 & location)
+{
+	if (is_moving_)
+	{
+		UpdateLocation(location);
+		if (FinishAtDestination(location))
+		{
+			is_moving_ = false;
+		}
+	}
+}
+
+int2 UnitMovementComponent::GetDestination()
+{
+	return destination_;
 }
 

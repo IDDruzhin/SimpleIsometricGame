@@ -14,6 +14,7 @@ public:
 	void SetDirection(float2 dir);
 	void UpdateLocation(float2 &location);
 	bool IsMoving();
+	void SetMovement(bool is_moving);
 	float2 GetVelocity();
 	virtual void Move(shared_ptr<Grid> grid, float2 &location);
 };

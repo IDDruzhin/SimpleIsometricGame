@@ -40,6 +40,11 @@ bool MovementComponent::IsMoving()
 	return is_moving_;
 }
 
+void MovementComponent::SetMovement(bool is_moving)
+{
+	is_moving_ = is_moving;
+}
+
 float2 MovementComponent::GetVelocity()
 {
 	return velocity_;
@@ -47,5 +52,8 @@ float2 MovementComponent::GetVelocity()
 
 void MovementComponent::Move(shared_ptr<Grid> grid, float2 &location)
 {
-	UpdateLocation(location);
+	if (is_moving_)
+	{
+		UpdateLocation(location);
+	}
 }

@@ -166,6 +166,7 @@
     <ClInclude Include="Guardian.h" />
     <ClInclude Include="InputController.h" />
     <ClInclude Include="MovementComponent.h" />
+    <ClInclude Include="PathMovement.h" />
     <ClInclude Include="PatrolMovement.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="SFMLGameView.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="Guardian.cpp" />
     <ClCompile Include="InputController.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
+    <ClCompile Include="PathMovement.cpp" />
     <ClCompile Include="PatrolMovement.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="SFMLGameView.cpp" />

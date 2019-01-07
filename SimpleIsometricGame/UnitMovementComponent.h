@@ -11,5 +11,7 @@ public:
 	virtual void SetDestination(int2 destination);
 	virtual bool FinishAtDestination(float2 &location);
 	virtual void UpdateMovement(shared_ptr<Grid> grid);
+	virtual void Move(shared_ptr<Grid> grid, float2 &location);
+	int2 GetDestination();
 };
 

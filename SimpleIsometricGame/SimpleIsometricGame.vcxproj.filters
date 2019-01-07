@@ -126,6 +126,9 @@
     <ClInclude Include="UnitMovementComponent.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="PathMovement.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -210,6 +213,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="UnitMovementComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="PathMovement.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

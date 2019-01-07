@@ -20,3 +20,8 @@ void Unit::Update()
 	movement_component_->Move(grid_, grid_location_);
 	GridActor::Update();
 }
+
+int2 Unit::GetDestination()
+{
+	return movement_component_->GetDestination();
+}
