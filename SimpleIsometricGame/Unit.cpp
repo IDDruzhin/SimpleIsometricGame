@@ -21,6 +21,11 @@ void Unit::Update()
 	GridActor::Update();
 }
 
+void Unit::SetDestination(int2 destination)
+{
+	movement_component_->SetDestination(destination);
+}
+
 int2 Unit::GetDestination()
 {
 	return movement_component_->GetDestination();

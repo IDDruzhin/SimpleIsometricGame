@@ -29,6 +29,7 @@ Guardian::Guardian(shared_ptr<GraphicsEngine> graphics_engine, shared_ptr<Grid> 
 		patrol_locaton.y -= 1;
 	}
 	movement_component_ = make_shared<PatrolMovement>(grid_location, patrol_locaton);
+	graphics_component_->SetScale(0.2f);
 }
 
 
