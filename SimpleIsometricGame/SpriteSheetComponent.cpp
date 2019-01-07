@@ -29,6 +29,10 @@ bool SpriteSheetComponent::SetState(uint state)
 
 bool SpriteSheetComponent::NextFrame()
 {
+	if (sheet_info_->sheet_intervals[cur_state_].y == 0)
+	{
+		return false;
+	}
 	float time = timer_.GetElapsedSeconds() - play_rate_;
 	if (time > 0)
 	{

@@ -24,9 +24,30 @@ void DrawableObject::UpdateSprite(uint cur_state_)
 {
 	bool need_update = false;
 	need_update = sprite_sheet_component_->SetState(cur_state_);
-	need_update |= sprite_sheet_component_->NextFrame();
 	if (need_update)
 	{
 		graphics_component_->SetSpriteRect(sprite_sheet_component_->GetCurRect());
+	}
+	else
+	{
+		need_update = sprite_sheet_component_->NextFrame();
+		if (need_update)
+		{
+			graphics_component_->SetSpriteRect(sprite_sheet_component_->GetCurRect());
+		}
+	}
+}
+
+uint DrawableObject::GetState()
+{
+	return 0;
+}
+
+void DrawableObject::Update()
+{
+	graphics_component_->SetLocation(screen_location_);
+	if (sprite_sheet_component_)
+	{
+		UpdateSprite(GetState());
 	}
 }

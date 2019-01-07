@@ -163,6 +163,7 @@
     <ClInclude Include="GraphicsEngine.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridActor.h" />
+    <ClInclude Include="Guardian.h" />
     <ClInclude Include="InputController.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="PatrolMovement.h" />
@@ -192,6 +193,7 @@
     <ClCompile Include="GraphicsEngine.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GridActor.cpp" />
+    <ClCompile Include="Guardian.cpp" />
     <ClCompile Include="InputController.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="PatrolMovement.cpp" />

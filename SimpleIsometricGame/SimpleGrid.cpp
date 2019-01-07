@@ -30,10 +30,11 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 	graphics_engine->RegisterGraphicsResource(graphics_component_, sprite_sheet_component_, cells_texture_path, sheet_info);
 	float tile_width = 64;
 	SetCellOffset(tile_width);
+	graphics_component_->SetOrigin(int2(graphics_component_->GetSpriteRect().size.x / 2, 0));
 	SetDim(uint2(10, 10));
-	block_mask_.Clear(true);
+	block_mask_.Clear();
 	//fill(cells_map_.begin(), cells_map_.end(), 22);
-	GenerateRandomGrid();
+	//GenerateRandomGrid();
 	//fill(cells_map_.begin(), cells_map_.end(), 0);
 	/*
 	cell_offset_.x = tile_width / 2.0f;

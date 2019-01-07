@@ -11,5 +11,6 @@ public:
 	static shared_ptr<GameSystem> GetInstance();
 	~GameSystem();
 	float GetElapsedSeconds();
+	void Update();
 };
 

@@ -13,7 +13,8 @@ Timer::~Timer()
 
 float Timer::GetElapsedSeconds()
 {
-	float elapsed_seconds = init_seconds_ + chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now() - start_).count() / 1000.0f;
+	//float elapsed_seconds = init_seconds_ + chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now() - start_).count() / 1000.0f;
+	float elapsed_seconds = init_seconds_ + chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now() - start_).count() * 1e-9;
 	return elapsed_seconds;
 }
 

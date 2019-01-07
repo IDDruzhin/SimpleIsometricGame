@@ -25,4 +25,10 @@ float GameSystem::GetElapsedSeconds()
 	return elapsed_seconds_;
 }
 
+void GameSystem::Update()
+{
+	elapsed_seconds_ = timer_.GetElapsedSeconds();
+	timer_.Restart();
+}
+
 shared_ptr<GameSystem> GameSystem::instance_ = nullptr;

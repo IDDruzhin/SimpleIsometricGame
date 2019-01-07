@@ -8,6 +8,8 @@ protected:
 	shared_ptr<MovementComponent> movement_component_;
 public:
 	Unit();
+	Unit(shared_ptr<Grid> grid, int2 grid_location);
 	~Unit();
+	virtual void Update();
 };
 

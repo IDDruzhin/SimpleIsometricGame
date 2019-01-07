@@ -36,5 +36,7 @@ public:
 	void SetBlockMask(int2 pos, bool block);
 	void SetEmployMask(int2 pos);
 	void SetKillzoneMask(int2 pos);
+	void ClearEmployMask();
+	void ClearKillzoneMask();
 };
 

@@ -119,7 +119,7 @@ void Grid::Draw(shared_ptr<Screen> screen)
 			for (int x = 0; x < dim_.x; x++)
 			{
 				index = y * dim_.x + x;
-				if (block_mask_.Get(index))
+				if (!block_mask_.Get(index))
 				{
 					cell_grid_location.x = x;
 					cell_grid_location.y = y;
@@ -139,7 +139,7 @@ void Grid::Draw(shared_ptr<Screen> screen)
 			for (int x = 0; x < dim_.x; x++)
 			{
 				index = y * dim_.x + x;
-				if (block_mask_.Get(index))
+				if (!block_mask_.Get(index))
 				{
 					if (sprite_sheet_component_->SetState(cells_map_[index]))
 					{
@@ -181,7 +181,7 @@ float2 Grid::ScreenToGrid(float2 screen_pos)
 	*/
 	screen_pos.x -= screen_location_.x;
 	screen_pos.y -= screen_location_.y;
-	screen_pos.x -= cell_offset_.x;
+	//screen_pos.x -= cell_offset_.x;
 	grid_pos.x = (screen_pos.x / cell_offset_.x + screen_pos.y / cell_offset_.y) / 2.0f;
 	grid_pos.y = (screen_pos.y / cell_offset_.y - (screen_pos.x / cell_offset_.x)) / 2.0f;
 	return grid_pos;
@@ -233,5 +233,15 @@ void Grid::SetKillzoneMask(int2 pos)
 {
 	uint index = pos.y * dim_.x + pos.x;
 	killzone_mask_.Set(index, true);
+}
+
+void Grid::ClearEmployMask()
+{
+	employ_mask_.Clear();
+}
+
+void Grid::ClearKillzoneMask()
+{
+	killzone_mask_.Clear();
 }
 

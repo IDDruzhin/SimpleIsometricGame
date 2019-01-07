@@ -23,6 +23,7 @@ void GameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 
 void GameModel::Update()
 {
+	GameSystem::GetInstance()->Update();
 }
 
 void GameModel::Render(shared_ptr<Screen> screen)

@@ -5,6 +5,7 @@
 PatrolMovement::PatrolMovement(int2 first, int2 second, float speed):first_(first),second_(second)
 {
 	speed_ = speed;
+	wait_time_ = 1.0f;
 }
 
 PatrolMovement::~PatrolMovement()
@@ -21,7 +22,7 @@ void PatrolMovement::Move(shared_ptr<Grid> grid, float2 & location)
 		float2 dest_vector;
 		dest_vector.x = second_.x + 0.5f - location.x;
 		dest_vector.y = second_.y + 0.5f - location.y;
-		if (Dot(dest_vector, velocity_) < 0)
+		if (dest_vector.Dot(dest_vector, velocity_) < 0)
 		{
 			location.x = second_.x + 0.5f;
 			location.y = second_.y + 0.5f;
@@ -35,7 +36,9 @@ void PatrolMovement::Move(shared_ptr<Grid> grid, float2 & location)
 		float time = timer_.GetElapsedSeconds() - wait_time_;
 		if (time > 0)
 		{
-			if (grid->CheckBlockMask(second_) && grid->CheckEmployMask(second_))
+			bool block = grid->CheckBlockMask(second_);
+			bool emp = grid->CheckEmployMask(second_);
+			if (!(grid->CheckBlockMask(second_) || grid->CheckEmployMask(second_)))
 			{
 				float2 dest_vector;
 				dest_vector.x = second_.x + 0.5f - location.x;
