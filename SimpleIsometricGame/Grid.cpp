@@ -205,6 +205,15 @@ bool Grid::IsInsideGrid(float2 grid_pos)
 	return false;
 }
 
+bool Grid::IsInsideGrid(int2 grid_pos)
+{
+	if (grid_pos.x >= 0 && grid_pos.x <= dim_.x && grid_pos.y >= 0 && grid_pos.y <= dim_.y)
+	{
+		return true;
+	}
+	return false;
+}
+
 bool Grid::CheckBlockMask(int2 pos)
 {
 	uint index = pos.y * dim_.x + pos.x;

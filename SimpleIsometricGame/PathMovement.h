@@ -4,8 +4,10 @@
 struct CellNode
 {
 	int2 index;
-	uint cost;
+	float cost;
 	shared_ptr<CellNode> prev;
+	CellNode() {}
+	CellNode(int2 _index, uint _cost, shared_ptr<CellNode> _prev) : index(_index), cost(_cost), prev(_prev) {}
 };
 
 class PathMovement :

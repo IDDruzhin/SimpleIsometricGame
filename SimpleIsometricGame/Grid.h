@@ -31,6 +31,7 @@ public:
 	float2 ScreenToGrid(float2 screen_pos);
 	float2 GetGridCenter();
 	bool IsInsideGrid(float2 grid_pos);
+	bool IsInsideGrid(int2 grid_pos);
 	bool CheckBlockMask(int2 pos);
 	bool CheckEmployMask(int2 pos);
 	void SetBlockMask(int2 pos, bool block);

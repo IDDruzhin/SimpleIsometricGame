@@ -33,6 +33,10 @@ public:
 		res.y = y - right.y;
 		return res;
 	}
+	bool operator==(const Vector2D &right)
+	{
+		return (x == right.x && y == right.y);
+	}
 	T Dot(const Vector2D &v)
 	{
 		return (x*v.x + y * v.y);
