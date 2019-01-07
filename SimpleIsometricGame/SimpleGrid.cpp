@@ -15,7 +15,8 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 	sheet_info->sheet_dim_x = 5;
 	sheet_info->window_size.x = 111;
 	sheet_info->window_size.y = 128;
-	int tiles_count = 10;
+	//int tiles_count = 10;
+	int tiles_count = 3;
 	/*
 	sheet_info->window_size.x = 112;
 	sheet_info->window_size.y = 129;
@@ -31,10 +32,10 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 	float tile_width = 64;
 	SetCellOffset(tile_width);
 	graphics_component_->SetOrigin(int2(graphics_component_->GetSpriteRect().size.x / 2, 0));
-	SetDim(uint2(10, 10));
+	SetDim(uint2(30, 30));
 	block_mask_.Clear();
 	//fill(cells_map_.begin(), cells_map_.end(), 22);
-	//GenerateRandomGrid();
+	GenerateRandomGrid();
 	//fill(cells_map_.begin(), cells_map_.end(), 0);
 	/*
 	cell_offset_.x = tile_width / 2.0f;

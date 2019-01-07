@@ -37,6 +37,10 @@ public:
 	{
 		return (x == right.x && y == right.y);
 	}
+	bool operator!=(const Vector2D &right)
+	{
+		return (x != right.x || y != right.y);
+	}
 	T Dot(const Vector2D &v)
 	{
 		return (x*v.x + y * v.y);

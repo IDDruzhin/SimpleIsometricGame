@@ -17,6 +17,7 @@ protected:
 	int2 finish_;
 	stack<int2> path_;
 	bool path_rebuild_;
+	float Heuristic(int2 cur_node);
 public:
 	PathMovement();
 	~PathMovement();

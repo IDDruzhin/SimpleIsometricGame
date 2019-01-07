@@ -60,6 +60,13 @@ bool Bitset::Get(uint index)
 	return false;
 }
 
+Bitset & Bitset::operator=(const Bitset & copy)
+{
+	size_ = copy.size_;
+	data_ = copy.data_;
+	return *this;
+}
+
 Bitset & Bitset::operator|=(const Bitset & right)
 {
 	if (right.size_ == size_)

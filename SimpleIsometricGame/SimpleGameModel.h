@@ -8,7 +8,7 @@ class SimpleGameModel :
 {
 private:
 	shared_ptr<GridActor> actor_;
-	shared_ptr<Unit> player_;
+	//shared_ptr<Unit> player_;
 public:
 	SimpleGameModel();
 	SimpleGameModel(shared_ptr<GraphicsEngine> graphics_engine);
@@ -16,5 +16,6 @@ public:
 	virtual void Init(shared_ptr<GraphicsEngine> graphics_engine);
 	virtual void Update();
 	virtual void Render(shared_ptr<Screen> screen);
+	//virtual void MovePlayerTo(shared_ptr<Screen> screen);
 };
 

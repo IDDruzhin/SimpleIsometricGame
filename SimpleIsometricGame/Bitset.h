@@ -12,7 +12,7 @@ public:
 	void Clear(bool val = false);
 	void Set(uint index, bool val);
 	bool Get(uint index);
-	//Bitset& operator=(const Bitset& copy);
+	Bitset& operator=(const Bitset& copy);
 	Bitset& operator|=(const Bitset& right);
 };
 

@@ -207,7 +207,7 @@ bool Grid::IsInsideGrid(float2 grid_pos)
 
 bool Grid::IsInsideGrid(int2 grid_pos)
 {
-	if (grid_pos.x >= 0 && grid_pos.x <= dim_.x && grid_pos.y >= 0 && grid_pos.y <= dim_.y)
+	if (grid_pos.x >= 0 && grid_pos.x < dim_.x && grid_pos.y >= 0 && grid_pos.y < dim_.y)
 	{
 		return true;
 	}
@@ -265,5 +265,10 @@ void Grid::PrintMask(Bitset mask)
 		}
 		cout << endl;
 	}
+}
+
+Bitset Grid::GetBlockMask()
+{
+	return block_mask_;
 }
 

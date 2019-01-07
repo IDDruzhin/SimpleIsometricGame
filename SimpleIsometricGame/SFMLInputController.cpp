@@ -39,6 +39,9 @@ void SFMLInputController::Update()
 				cout << "World:" << endl;
 				cout << world_pos.x << endl;
 				cout << world_pos.y << endl;
+				break;
+			case sf::Mouse::Left:
+				game_model_->MovePlayerTo(float2(world_pos.x, world_pos.y));
 			default:
 				break;
 			}

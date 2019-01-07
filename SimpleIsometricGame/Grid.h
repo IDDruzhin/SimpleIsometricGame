@@ -40,5 +40,6 @@ public:
 	void ClearEmployMask();
 	void ClearKillzoneMask();
 	void PrintMask(Bitset mask);
+	Bitset GetBlockMask();
 };
 

@@ -26,6 +26,11 @@ void Unit::MoveTo(int2 finish)
 	movement_component_->MoveTo(finish);
 }
 
+void Unit::UpdateMovement()
+{
+	movement_component_->UpdateMovement(grid_);
+}
+
 /*
 void Unit::SetDestination(int2 destination)
 {
