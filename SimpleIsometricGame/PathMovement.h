@@ -1,5 +1,13 @@
 #pragma once
 #include "UnitMovementComponent.h"
+
+struct CellNode
+{
+	int2 index;
+	uint cost;
+	shared_ptr<CellNode> prev;
+};
+
 class PathMovement :
 	public UnitMovementComponent
 {

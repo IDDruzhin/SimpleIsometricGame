@@ -34,6 +34,11 @@ void PathMovement::Move(shared_ptr<Grid> grid, float2 & location)
 
 void PathMovement::CalculatePath(shared_ptr<Grid> grid, int2 cur_location)
 {
+	///Dijkstra
+	path_ = stack<int2>();
+	Bitset visited_nodes_mask(grid->GetDim().x * grid->GetDim().y);
+	vector<shared_ptr<CellNode>> border_nodes;
+	//shared_ptr<CellNode> cur = {}
 }
 
 void PathMovement::UpdateMovement(shared_ptr<Grid> grid)
