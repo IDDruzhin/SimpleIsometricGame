@@ -254,3 +254,16 @@ void Grid::ClearKillzoneMask()
 	killzone_mask_.Clear();
 }
 
+void Grid::PrintMask(Bitset mask)
+{
+	cout << endl;
+	for (int i = 0; i < dim_.y; i++)
+	{
+		for (int j = 0; j < dim_.x; j++)
+		{
+			cout << mask.Get(i*dim_.x + j) << " ";
+		}
+		cout << endl;
+	}
+}
+

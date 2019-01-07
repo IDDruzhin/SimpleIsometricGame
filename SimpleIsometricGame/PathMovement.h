@@ -7,7 +7,7 @@ struct CellNode
 	float cost;
 	shared_ptr<CellNode> prev;
 	CellNode() {}
-	CellNode(int2 _index, uint _cost, shared_ptr<CellNode> _prev) : index(_index), cost(_cost), prev(_prev) {}
+	CellNode(int2 _index, float _cost, shared_ptr<CellNode> _prev) : index(_index), cost(_cost), prev(_prev) {}
 };
 
 class PathMovement :
@@ -20,7 +20,8 @@ protected:
 public:
 	PathMovement();
 	~PathMovement();
-	void SetDestination(int2 destination);
+	//void SetDestination(int2 destination);
+	void MoveTo(int2 finish);
 	void Move(shared_ptr<Grid> grid, float2 &location);
 	void CalculatePath(shared_ptr<Grid> grid, int2 cur_location);
 	void UpdateMovement(shared_ptr<Grid> grid);

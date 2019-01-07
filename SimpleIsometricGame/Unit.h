@@ -11,7 +11,8 @@ public:
 	Unit(shared_ptr<Grid> grid, int2 grid_location);
 	~Unit();
 	virtual void Update();
-	virtual void SetDestination(int2 destination);
+	virtual void MoveTo(int2 finish);
+	//virtual void SetDestination(int2 destination);
 	int2 GetDestination();
 };
 

@@ -43,6 +43,11 @@ void UnitMovementComponent::UpdateMovement(shared_ptr<Grid> grid)
 	}
 }
 
+void UnitMovementComponent::MoveTo(int2 finish)
+{
+	SetDestination(finish);
+}
+
 void UnitMovementComponent::Move(shared_ptr<Grid> grid, float2 & location)
 {
 	if (is_moving_)
@@ -53,6 +58,14 @@ void UnitMovementComponent::Move(shared_ptr<Grid> grid, float2 & location)
 			is_moving_ = false;
 		}
 	}
+}
+
+void UnitMovementComponent::CalcVelocity(float2 & location)
+{
+	float2 dir;
+	dir.x = destination_.x + 0.5f - location.x;
+	dir.y = destination_.y + 0.5f - location.y;
+	SetDirection(dir);
 }
 
 int2 UnitMovementComponent::GetDestination()

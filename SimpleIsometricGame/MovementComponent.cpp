@@ -2,7 +2,7 @@
 #include "MovementComponent.h"
 
 
-MovementComponent::MovementComponent():is_moving_(false)
+MovementComponent::MovementComponent():is_moving_(false),speed_(1.0f)
 {
 }
 
@@ -22,8 +22,15 @@ void MovementComponent::SetSpeed(float speed)
 void MovementComponent::SetDirection(float2 dir)
 {
 	float norm = dir.Norm(dir);
-	velocity_.x = speed_ * dir.x / norm;
-	velocity_.y = speed_ * dir.y / norm;
+	if (norm < 1e-6)
+	{
+		velocity_ = float2(0.0f, 0.0f);
+	}
+	else
+	{
+		velocity_.x = speed_ * dir.x / norm;
+		velocity_.y = speed_ * dir.y / norm;
+	}
 }
 
 void MovementComponent::UpdateLocation(float2 & location)

@@ -22,7 +22,7 @@ void SimpleGameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 	grid_ = make_shared<SimpleGrid>(graphics_engine_);
 	actor_ = make_shared<Guardian>(graphics_engine_, grid_, int2(0, 0), int2(1, 0));
 	player_ = make_shared<PlayerCharacter>(graphics_engine_, grid_, int2(0, 5));
-	player_->SetDestination(int2(10, 5));
+	player_->MoveTo(int2(8, 5));
 }
 
 void SimpleGameModel::Update()

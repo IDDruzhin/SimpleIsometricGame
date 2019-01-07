@@ -21,10 +21,17 @@ void Unit::Update()
 	GridActor::Update();
 }
 
+void Unit::MoveTo(int2 finish)
+{
+	movement_component_->MoveTo(finish);
+}
+
+/*
 void Unit::SetDestination(int2 destination)
 {
 	movement_component_->SetDestination(destination);
 }
+*/
 
 int2 Unit::GetDestination()
 {

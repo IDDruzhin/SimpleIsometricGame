@@ -39,5 +39,6 @@ public:
 	void SetKillzoneMask(int2 pos);
 	void ClearEmployMask();
 	void ClearKillzoneMask();
+	void PrintMask(Bitset mask);
 };
 
