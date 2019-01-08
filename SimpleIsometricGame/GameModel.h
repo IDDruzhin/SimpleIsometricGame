@@ -9,7 +9,9 @@ protected:
 	shared_ptr<GraphicsEngine> graphics_engine_;
 	shared_ptr<Grid> grid_;
 	shared_ptr<Unit> player_;
+	int2 finish_point_;
 	bool is_player_alive_;
+	int random_map_seed_;
 public:
 	GameModel();
 	GameModel(shared_ptr<GraphicsEngine> graphics_engine);
@@ -21,5 +23,6 @@ public:
 	float2 GetGridCeneter();
 	virtual void ToggleGridBlockMask(float2 screen_pos);
 	virtual void MovePlayerTo(float2 screen_pos);
+	virtual void SetRandomMapSeed(int seed);
 };
 

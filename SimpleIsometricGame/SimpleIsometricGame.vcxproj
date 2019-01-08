@@ -188,7 +188,6 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="TouchAttack.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="UnitMovementComponent.h" />
     <ClInclude Include="Utils.h" />
@@ -234,7 +233,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="TouchAttack.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="UnitMovementComponent.cpp" />
   </ItemGroup>

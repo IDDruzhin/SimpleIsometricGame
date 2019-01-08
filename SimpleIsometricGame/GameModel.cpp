@@ -2,7 +2,7 @@
 #include "GameModel.h"
 
 
-GameModel::GameModel():is_player_alive_(true)
+GameModel::GameModel():is_player_alive_(true),random_map_seed_(0)
 {
 }
 
@@ -76,4 +76,9 @@ void GameModel::MovePlayerTo(float2 screen_pos)
 			player_->MoveTo(cell_pos);
 		}	
 	}
+}
+
+void GameModel::SetRandomMapSeed(int seed)
+{
+	random_map_seed_;
 }

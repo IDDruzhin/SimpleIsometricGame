@@ -2,7 +2,7 @@
 #include "SimpleGrid.h"
 
 
-SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
+SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine, int seed)
 {
 	//dim_.x = 10;
 	//dim_.y = 10;
@@ -16,7 +16,7 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 	sheet_info->window_size.x = 111;
 	sheet_info->window_size.y = 128;
 	//int tiles_count = 10;
-	int tiles_count = 3;
+	int tiles_count = 5;
 	/*
 	sheet_info->window_size.x = 112;
 	sheet_info->window_size.y = 129;
@@ -35,7 +35,7 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine)
 	SetDim(uint2(30, 30));
 	block_mask_.Clear();
 	//fill(cells_map_.begin(), cells_map_.end(), 22);
-	GenerateRandomGrid();
+	GenerateRandomGrid(seed);
 	//fill(cells_map_.begin(), cells_map_.end(), 0);
 	/*
 	cell_offset_.x = tile_width / 2.0f;

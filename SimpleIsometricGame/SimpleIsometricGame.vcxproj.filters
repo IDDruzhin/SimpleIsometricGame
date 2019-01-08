@@ -102,66 +102,60 @@
     <ClInclude Include="SFMLWindow.h">
       <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
-    <ClInclude Include="DrawableObject.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Bitset.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Unit.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MovementComponent.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSystem.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="PatrolMovement.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Guardian.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="UnitMovementComponent.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="PathMovement.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerCharacter.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Cannon.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Misc</Filter>
     </ClInclude>
     <ClInclude Include="AttackComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
-    <ClInclude Include="TouchAttack.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PathMovement.h">
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PatrolMovement.h">
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="ProjectileShootComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Projectile.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="FireBall.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="UnitMovementComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="FireballAttack.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSystem.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Cannon.h">
+      <Filter>Файлы заголовков\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableObject.h">
+      <Filter>Файлы заголовков\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBall.h">
+      <Filter>Файлы заголовков\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Guardian.h">
+      <Filter>Файлы заголовков\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCharacter.h">
+      <Filter>Файлы заголовков\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Файлы заголовков\Objects</Filter>
     </ClInclude>
     <ClInclude Include="SimpleCannon.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Файлы заголовков\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleIsometricGame.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="BaseObject.cpp">
@@ -203,9 +197,6 @@
     <ClCompile Include="SFMLInputController.cpp">
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleGameModel.cpp">
-      <Filter>Исходные файлы\Game</Filter>
-    </ClCompile>
     <ClCompile Include="GameView.cpp">
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
@@ -218,58 +209,61 @@
     <ClCompile Include="SFMLWindow.cpp">
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
-    <ClCompile Include="DrawableObject.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Bitset.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Unit.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="MovementComponent.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSystem.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="PatrolMovement.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Guardian.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="UnitMovementComponent.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="PathMovement.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerCharacter.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Cannon.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Misc</Filter>
     </ClCompile>
     <ClCompile Include="AttackComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
-    <ClCompile Include="TouchAttack.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Cannon.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="ProjectileShootComponent.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Projectile.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="DrawableObject.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
     </ClCompile>
     <ClCompile Include="FireBall.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Objects</Filter>
     </ClCompile>
     <ClCompile Include="FireballAttack.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSystem.cpp">
+      <Filter>Исходные файлы\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PathMovement.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PatrolMovement.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectileShootComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitMovementComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Guardian.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCharacter.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
     </ClCompile>
     <ClCompile Include="SimpleCannon.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameModel.cpp">
+      <Filter>Исходные файлы\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleIsometricGame.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
