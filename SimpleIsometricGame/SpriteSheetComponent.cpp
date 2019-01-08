@@ -50,7 +50,7 @@ bool SpriteSheetComponent::NextFrame()
 Rect SpriteSheetComponent::GetCurRect()
 {
 	Rect r;
-	uint cur_index = cur_state_ + cur_frame_;
+	uint cur_index = sheet_info_->sheet_intervals[cur_state_].x + cur_frame_;
 	uint2 cur_pos;
 	cur_pos.x = cur_index % sheet_info_->sheet_dim_x;
 	cur_pos.y = cur_index / sheet_info_->sheet_dim_x;
@@ -63,4 +63,9 @@ Rect SpriteSheetComponent::GetCurRect()
 uint SpriteSheetComponent::GetTilesCount()
 {
 	return sheet_info_->sheet_intervals.size();
+}
+
+void SpriteSheetComponent::SetPlayRate(float rate)
+{
+	play_rate_ = rate;
 }

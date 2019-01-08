@@ -15,13 +15,15 @@ PatrolMovement::~PatrolMovement()
 
 void PatrolMovement::Move(shared_ptr<Grid> grid, float2 & location)
 {
-	grid->SetEmployMask(start_);
+	//grid->SetEmployMask(start_);
 	if (is_moving_)
 	{
 		UpdateLocation(location);
-		grid->SetEmployMask(destination_);
+		//grid->SetEmployMask(destination_);
 		if (FinishAtDestination(location))
 		{
+			grid->SetEmployMask(start_, false);
+			//grid->SetEmployMask(destination_,true);
 			is_moving_ = false;
 			timer_.Restart();
 			swap(start_, destination_);
@@ -56,7 +58,7 @@ void PatrolMovement::Move(shared_ptr<Grid> grid, float2 & location)
 				dest_vector.y = destination_.y + 0.5f - location.y;
 				SetDirection(dest_vector);
 				is_moving_ = true;
-				grid->SetEmployMask(destination_);
+				grid->SetEmployMask(destination_,true);
 			}
 		}
 	}

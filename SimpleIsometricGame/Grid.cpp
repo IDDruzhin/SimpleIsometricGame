@@ -226,16 +226,22 @@ bool Grid::CheckEmployMask(int2 pos)
 	return employ_mask_.Get(index);
 }
 
+bool Grid::CheckKillzoneMask(int2 pos)
+{
+	uint index = pos.y * dim_.x + pos.x;
+	return killzone_mask_.Get(index);
+}
+
 void Grid::SetBlockMask(int2 pos, bool block)
 {
 	uint index = pos.y * dim_.x + pos.x;
 	block_mask_.Set(index, block);
 }
 
-void Grid::SetEmployMask(int2 pos)
+void Grid::SetEmployMask(int2 pos, bool employ)
 {
 	uint index = (pos.y + 1) * (dim_.x + 1) + (pos.x + 1);
-	employ_mask_.Set(index, true);
+	employ_mask_.Set(index, employ);
 }
 
 void Grid::SetKillzoneMask(int2 pos)

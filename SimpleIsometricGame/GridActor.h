@@ -12,7 +12,8 @@ public:
 	GridActor(shared_ptr<Grid> grid, int2 grid_location);
 	~GridActor();
 	void SetGridCellLocation(float2 grid_location);
-	float2 GetGridCellLocation();
+	int2 GetGridCellLocation();
+	float2 GetGridLocation();
 	virtual void Update();
 };
 

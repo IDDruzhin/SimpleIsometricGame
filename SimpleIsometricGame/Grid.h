@@ -34,8 +34,9 @@ public:
 	bool IsInsideGrid(int2 grid_pos);
 	bool CheckBlockMask(int2 pos);
 	bool CheckEmployMask(int2 pos);
+	bool CheckKillzoneMask(int2 pos);
 	void SetBlockMask(int2 pos, bool block);
-	void SetEmployMask(int2 pos);
+	void SetEmployMask(int2 pos, bool employ);
 	void SetKillzoneMask(int2 pos);
 	void ClearEmployMask();
 	void ClearKillzoneMask();

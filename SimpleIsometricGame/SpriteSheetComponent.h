@@ -25,5 +25,6 @@ public:
 	bool NextFrame();
 	Rect GetCurRect();
 	uint GetTilesCount();
+	void SetPlayRate(float rate);
 };
 
