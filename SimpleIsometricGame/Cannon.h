@@ -1,21 +1,15 @@
 #pragma once
 #include "GridActor.h"
+#include "ProjectileShootComponent.h"
 class Cannon :
 	public GridActor
 {
 protected:
-	float shoot_interval_;
-	Timer shoot_timer_;
-	int direction;
+	shared_ptr<ProjectileShootComponent> attack_component_;
 public:
-	enum CANNON_DIRECTION
-	{
-		RIGHT,
-		DOWN,
-		LEFT,
-		TOP
-	};
+	Cannon(shared_ptr<GraphicsEngine> graphics_engine, shared_ptr<Grid> grid, int2 grid_location);
 	Cannon();
 	~Cannon();
+	virtual void Update();
 };
 

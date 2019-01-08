@@ -2,6 +2,26 @@
 #include "FireBall.h"
 
 
+void FireBall::SetState(float2 dir)
+{
+	if (dir.x > 0)
+	{
+		sprite_sheet_component_->SetState(FIREBALL_STATES[ACTOR_DIRECTION::RIGHT]);
+	}
+	else if (dir.x < 0)
+	{
+		sprite_sheet_component_->SetState(FIREBALL_STATES[ACTOR_DIRECTION::LEFT]);
+	}
+	else if (dir.y < 0)
+	{
+		sprite_sheet_component_->SetState(FIREBALL_STATES[ACTOR_DIRECTION::TOP]);
+	}
+	else if (grid_location_.y > 0)
+	{
+		sprite_sheet_component_->SetState(FIREBALL_STATES[ACTOR_DIRECTION::DOWN]);
+	}
+}
+
 FireBall::FireBall(shared_ptr<GraphicsEngine> graphics_engine)
 {
 	string texture_path = "Content/fireball_0.png";
@@ -47,3 +67,5 @@ FireBall::FireBall(shared_ptr<GraphicsEngine> graphics_engine, shared_ptr<Grid> 
 FireBall::~FireBall()
 {
 }
+
+const int FireBall::FIREBALL_STATES[] = { 5,7,1,5 };

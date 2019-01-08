@@ -8,7 +8,7 @@ class Guardian :
 private:
 	static const int GUARDIAN_STATES[];
 protected:
-	shared_ptr<AttackComponent> attack_component;
+	shared_ptr<AttackComponent> attack_component_;
 public:
 	Guardian(shared_ptr<GraphicsEngine> graphics_engine, shared_ptr<Grid> grid, int2 grid_location, int2 patrol_direction);
 	~Guardian();

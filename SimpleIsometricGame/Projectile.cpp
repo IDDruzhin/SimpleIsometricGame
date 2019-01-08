@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "Projectile.h"
 
+void Projectile::SetState(float2 dir)
+{
+}
+
 Projectile::Projectile()
 {
 	attack_component = make_shared<AttackComponent>();
@@ -47,4 +51,5 @@ void Projectile::SetSpeed(float speed)
 void Projectile::SetDirection(float2 dir)
 {
 	movement_component_->SetDirection(dir);
+	SetState(dir);
 }

@@ -8,7 +8,7 @@ void ProjectileShootComponent::SpawnProjectile(shared_ptr<Grid> grid, int2 cur_l
 	projectile->SetSpeed(shoot_speed_);
 }
 
-ProjectileShootComponent::ProjectileShootComponent(shared_ptr<GraphicsEngine> graphics_engine, float shoot_speed = 3.0f, int2 direction, float reload_time):shoot_speed_(shoot_speed),direction_(direction),reload_time_(reload_time)
+ProjectileShootComponent::ProjectileShootComponent(shared_ptr<GraphicsEngine> graphics_engine, float shoot_speed, int2 direction, float reload_time):shoot_speed_(shoot_speed),direction_(direction),reload_time_(reload_time)
 {
 }
 
