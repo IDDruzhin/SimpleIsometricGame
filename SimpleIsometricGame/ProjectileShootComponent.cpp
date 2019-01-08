@@ -15,7 +15,7 @@ void ProjectileShootComponent::SpawnProjectile(shared_ptr<Grid> grid, int2 cur_l
 	GameSystem::GetInstance()->AddGridActor(projectile);
 }
 
-ProjectileShootComponent::ProjectileShootComponent(shared_ptr<GraphicsEngine> graphics_engine, float shoot_speed, int2 direction, float reload_time):shoot_speed_(shoot_speed),direction_(direction),reload_time_(reload_time)
+ProjectileShootComponent::ProjectileShootComponent(shared_ptr<GraphicsEngine> graphics_engine, int2 direction, float shoot_speed, float reload_time):shoot_speed_(shoot_speed),direction_(direction),reload_time_(reload_time)
 {
 }
 

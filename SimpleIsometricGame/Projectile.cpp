@@ -1,10 +1,6 @@
 #include "stdafx.h"
 #include "Projectile.h"
 
-void Projectile::SetState(float2 dir)
-{
-}
-
 Projectile::Projectile()
 {
 	movement_component_ = make_shared<MovementComponent>();
@@ -25,13 +21,12 @@ Projectile::~Projectile()
 
 void Projectile::Update()
 {
-	/*
+	
 	if (!grid_->IsInsideGrid(grid_location_))
 	{
 		Destroy();
 	}
 	else
-	*/
 	{
 		attack_component_->Attack(grid_, GetGridCellLocation());
 	}
@@ -43,7 +38,7 @@ shared_ptr<Projectile> Projectile::Clone()
 {
 	shared_ptr<Projectile> copy = make_shared<Projectile>();
 	copy->graphics_component_ = graphics_component_->Clone();
-	copy->sprite_sheet_component_ = sprite_sheet_component_;
+	copy->sprite_sheet_component_ = sprite_sheet_component_->Clone();
 	//copy->movement_component_ = movement_component_;
 	//copy->attack_component_ = attack_component;
 	return copy;
@@ -58,5 +53,10 @@ void Projectile::SetDirection(float2 dir)
 {
 	movement_component_->SetDirection(dir);
 	movement_component_->SetMovement(true);
-	//SetState(dir);
+	SetState(dir);
+}
+
+void Projectile::SetState(float2 dir)
+{
+
 }

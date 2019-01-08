@@ -41,7 +41,9 @@ bool SpriteSheetComponent::NextFrame()
 		{
 			cur_frame_ = 0;
 		}
-		timer_.Restart(time);
+		float tmp = time / play_rate_;
+		tmp = tmp - floor(tmp);
+		timer_.Restart(tmp * play_rate_);
 		return true;
 	}
 	return false;
@@ -68,4 +70,12 @@ uint SpriteSheetComponent::GetTilesCount()
 void SpriteSheetComponent::SetPlayRate(float rate)
 {
 	play_rate_ = rate;
+}
+
+shared_ptr<SpriteSheetComponent> SpriteSheetComponent::Clone()
+{
+	shared_ptr<SpriteSheetComponent> copy = make_shared<SpriteSheetComponent>();
+	copy->play_rate_ = play_rate_;
+	copy->sheet_info_ = sheet_info_;
+	return copy;
 }

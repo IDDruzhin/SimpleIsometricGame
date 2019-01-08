@@ -13,7 +13,7 @@ protected:
 	virtual shared_ptr<Projectile> GetProjectile() = 0;
 	virtual void SpawnProjectile(shared_ptr<Grid> grid, int2 cur_location);
 public:
-	ProjectileShootComponent(shared_ptr<GraphicsEngine> graphics_engine, float shoot_speed = 3.0f, int2 direction = int2(1,0), float reload_time = 3.0f);
+	ProjectileShootComponent(shared_ptr<GraphicsEngine> graphics_engine, int2 direction, float shoot_speed = 3.0f, float reload_time = 3.0f);
 	~ProjectileShootComponent();
 	void Attack(shared_ptr<Grid> grid, int2 cur_location);
 };

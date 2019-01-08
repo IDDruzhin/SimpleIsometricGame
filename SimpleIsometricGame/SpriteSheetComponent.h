@@ -26,5 +26,6 @@ public:
 	Rect GetCurRect();
 	uint GetTilesCount();
 	void SetPlayRate(float rate);
+	shared_ptr<SpriteSheetComponent> Clone();
 };
 
