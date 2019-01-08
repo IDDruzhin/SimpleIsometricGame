@@ -28,9 +28,12 @@ void GameModel::Update()
 
 void GameModel::Render(shared_ptr<Screen> screen)
 {
+	/*
 	screen->Clear();
 	grid_->Draw(screen);
 	screen->Present();
+	*/
+	GameSystem::GetInstance()->Render(screen);
 }
 
 float2 GameModel::GetGridCeneter()

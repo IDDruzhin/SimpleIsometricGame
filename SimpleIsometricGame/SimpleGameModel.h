@@ -7,7 +7,7 @@ class SimpleGameModel :
 	public GameModel
 {
 private:
-	shared_ptr<GridActor> actor_;
+	//shared_ptr<GridActor> actor_;
 	//shared_ptr<Unit> player_;
 public:
 	SimpleGameModel();

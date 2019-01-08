@@ -4,8 +4,6 @@ class PatrolMovement :
 	public UnitMovementComponent
 {
 protected:
-	//int2 first_;
-	//int2 second_;
 	int2 start_;
 	float wait_time_;
 	Timer timer_;
