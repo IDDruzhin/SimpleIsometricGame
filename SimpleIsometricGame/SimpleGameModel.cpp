@@ -180,7 +180,7 @@ void SimpleGameModel::Update()
 		if (player_->IsActive() && grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
 		{
 			player_->Destroy();
-			string game_over_image_path = "Content/Game_over_002.png";
+			string game_over_image_path = "Content/Game_over.png";
 			shared_ptr<DrawableObject> lose_screen = make_shared<DrawableObject>(graphics_engine_, game_over_image_path);
 			lose_screen->CenterOrigin();
 			GameSystem::GetInstance()->AddScreenElement(lose_screen);
@@ -188,7 +188,7 @@ void SimpleGameModel::Update()
 		}
 		if (player_->GetGridCellLocation() == finish_point_)
 		{
-			string game_over_image_path = "Content/Victory_003.png";
+			string game_over_image_path = "Content/Victory.png";
 			shared_ptr<DrawableObject> victory_screen = make_shared<DrawableObject>(graphics_engine_, game_over_image_path);
 			victory_screen->CenterOrigin();
 			GameSystem::GetInstance()->AddScreenElement(victory_screen);

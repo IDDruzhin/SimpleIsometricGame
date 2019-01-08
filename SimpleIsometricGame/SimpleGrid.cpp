@@ -10,7 +10,7 @@ SimpleGrid::SimpleGrid(shared_ptr<GraphicsEngine> graphics_engine, int seed)
 	//string cell_texture_path = "Content/isometric_pixel_0200.png";
 	//string cell_texture_path = "Content/abstractTile_21.png";
 	//string cells_texture_path = "Content/Blocks_sheet.png";
-	string cells_texture_path = "Content/Blocks_sheet_001.png"; 
+	string cells_texture_path = "Content/Blocks_sheet.png"; 
 	shared_ptr<SheetInfo> sheet_info = make_shared<SheetInfo>();
 	sheet_info->sheet_dim_x = 5;
 	sheet_info->window_size.x = 111;

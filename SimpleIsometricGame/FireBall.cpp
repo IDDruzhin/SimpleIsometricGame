@@ -40,7 +40,7 @@ FireBall::FireBall()
 
 FireBall::FireBall(shared_ptr<GraphicsEngine> graphics_engine)
 {
-	string texture_path = "Content/fireball_0.png";
+	string texture_path = "Content/fireball.png";
 	shared_ptr<SheetInfo> sheet_info = make_shared<SheetInfo>();
 	sheet_info->sheet_dim_x = 8;
 	sheet_info->window_size.x = 64;
