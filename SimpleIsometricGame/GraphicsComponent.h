@@ -15,5 +15,6 @@ public:
 	virtual void SetSpriteRect(Rect r) = 0;
 	virtual Rect GetSpriteRect() = 0;
 	virtual void CenterOrigin() = 0;
+	virtual shared_ptr<GraphicsComponent> Clone() = 0;
 };
 

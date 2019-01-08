@@ -25,11 +25,13 @@ Projectile::~Projectile()
 
 void Projectile::Update()
 {
+	/*
 	if (!grid_->IsInsideGrid(grid_location_))
 	{
 		Destroy();
 	}
 	else
+	*/
 	{
 		attack_component_->Attack(grid_, GetGridCellLocation());
 	}
@@ -37,12 +39,12 @@ void Projectile::Update()
 	GridActor::Update();
 }
 
-shared_ptr<Projectile> Projectile::Copy()
+shared_ptr<Projectile> Projectile::Clone()
 {
 	shared_ptr<Projectile> copy = make_shared<Projectile>();
-	copy->graphics_component_ = graphics_component_;
+	copy->graphics_component_ = graphics_component_->Clone();
 	copy->sprite_sheet_component_ = sprite_sheet_component_;
-	copy->movement_component_ = movement_component_;
+	//copy->movement_component_ = movement_component_;
 	//copy->attack_component_ = attack_component;
 	return copy;
 }
@@ -55,5 +57,6 @@ void Projectile::SetSpeed(float speed)
 void Projectile::SetDirection(float2 dir)
 {
 	movement_component_->SetDirection(dir);
-	SetState(dir);
+	movement_component_->SetMovement(true);
+	//SetState(dir);
 }

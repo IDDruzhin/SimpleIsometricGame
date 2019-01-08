@@ -34,6 +34,7 @@ void GameSystem::Update()
 {
 	elapsed_seconds_ = timer_.GetElapsedSeconds();
 	timer_.Restart();
+	/*
 	for (auto it = grid_actors_.begin(); it != grid_actors_.end(); )
 	{
 		if ((*it)->IsActive())
@@ -48,6 +49,32 @@ void GameSystem::Update()
 			it = grid_actors_.begin() + dist;
 		}
 	}
+	*/
+	for (auto it = grid_actors_.begin(); it != grid_actors_.end(); )
+	{
+		if ((*it)->IsActive())
+		{
+			(*it)->Update();
+			it++;
+		}
+		else
+		{
+			it = grid_actors_.erase(it);
+		}
+	}
+	for (auto it = screen_elements_.begin(); it != screen_elements_.end(); )
+	{
+		if ((*it)->IsActive())
+		{
+			(*it)->Update();
+			it++;
+		}
+		else
+		{
+			it = screen_elements_.erase(it);
+		}
+	}
+	/*
 	for (auto it = screen_elements_.begin(); it != screen_elements_.end(); )
 	{
 		if ((*it)->IsActive())
@@ -62,6 +89,7 @@ void GameSystem::Update()
 			it = screen_elements_.begin() + dist;
 		}
 	}
+	*/
 }
 
 void GameSystem::Render(shared_ptr<Screen> screen)
@@ -72,7 +100,8 @@ void GameSystem::Render(shared_ptr<Screen> screen)
 		(*it)->Draw(screen);
 	}
 	//Depth sort
-	sort(grid_actors_.begin(), grid_actors_.end(), [](shared_ptr<GridActor> a, shared_ptr<GridActor> b) {return (a->GetScreenLocation().y < b->GetScreenLocation().y); });
+	grid_actors_.sort([](shared_ptr<GridActor> a, shared_ptr<GridActor> b) {return (a->GetScreenLocation().y < b->GetScreenLocation().y); });
+	//sort(grid_actors_.begin(), grid_actors_.end(), [](shared_ptr<GridActor> a, shared_ptr<GridActor> b) {return (a->GetScreenLocation().y < b->GetScreenLocation().y); });
 	for (auto it = grid_actors_.begin(); it != grid_actors_.end(); it++)
 	{
 		(*it)->Draw(screen);

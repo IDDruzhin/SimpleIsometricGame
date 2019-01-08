@@ -20,5 +20,6 @@ public:
 	void SetSpriteRect(Rect r);
 	Rect GetSpriteRect();
 	sf::Sprite GetSprite();
+	shared_ptr<GraphicsComponent> Clone();
 };
 

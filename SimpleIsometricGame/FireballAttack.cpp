@@ -3,7 +3,7 @@
 
 shared_ptr<Projectile> FireballAttack::GetProjectile()
 {
-	return fireball_prototype_;
+	return fireball_prototype_->Clone();
 }
 
 FireballAttack::FireballAttack(shared_ptr<GraphicsEngine> graphics_engine, float shoot_speed, int2 direction, float reload_time):ProjectileShootComponent(graphics_engine, shoot_speed, direction, reload_time)

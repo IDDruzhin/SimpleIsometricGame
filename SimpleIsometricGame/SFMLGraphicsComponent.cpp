@@ -72,3 +72,11 @@ sf::Sprite SFMLGraphicsComponent::GetSprite()
 {
 	return sprite_;
 }
+
+shared_ptr<GraphicsComponent> SFMLGraphicsComponent::Clone()
+{
+	shared_ptr<SFMLGraphicsComponent> copy = make_shared<SFMLGraphicsComponent>();
+	copy->sprite_ = sprite_;
+	//shared_ptr<GraphicsComponent> res = copy;
+	return copy;
+}
