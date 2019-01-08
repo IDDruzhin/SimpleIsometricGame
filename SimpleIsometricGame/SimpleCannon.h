@@ -1,5 +1,6 @@
 #pragma once
 #include "Cannon.h"
+#include "FireBallAttack.h"
 class SimpleCannon :
 	public Cannon
 {

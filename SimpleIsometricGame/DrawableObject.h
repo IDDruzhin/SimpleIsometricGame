@@ -14,8 +14,8 @@ public:
 	~DrawableObject();
 	virtual void RegisterGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path, shared_ptr<SheetInfo> sheet_info = nullptr);
 	virtual void Draw(shared_ptr<Screen> screen);
-	virtual void UpdateSprite(uint cur_state_);
-	virtual uint GetState();
+	virtual void UpdateSprite(int cur_state);
+	virtual int GetState();
 	virtual void Update();
 	//virtual float2 GetSize();
 	virtual void SetScale(float scale);

@@ -7,7 +7,7 @@ class Projectile :
 {
 protected:
 	shared_ptr<MovementComponent> movement_component_;
-	shared_ptr<AttackComponent> attack_component;
+	shared_ptr<AttackComponent> attack_component_;
 	virtual void SetState(float2 dir);
 public:
 	Projectile();

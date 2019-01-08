@@ -12,7 +12,7 @@ protected:
 public:
 	Guardian(shared_ptr<GraphicsEngine> graphics_engine, shared_ptr<Grid> grid, int2 grid_location, int2 patrol_direction);
 	~Guardian();
-	virtual uint GetState();
+	virtual int GetState();
 	virtual void Update();
 };
 

@@ -16,7 +16,7 @@ void SpriteSheetComponent::SetSheetInfo(shared_ptr<SheetInfo> sheet_info)
 	sheet_info_ = sheet_info;
 }
 
-bool SpriteSheetComponent::SetState(uint state)
+bool SpriteSheetComponent::SetState(int state)
 {
 	if (cur_state_ != state)
 	{

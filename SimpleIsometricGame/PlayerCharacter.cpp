@@ -32,7 +32,7 @@ PlayerCharacter::~PlayerCharacter()
 {
 }
 
-uint PlayerCharacter::GetState()
+int PlayerCharacter::GetState()
 {
 	float2 velocity = movement_component_->GetVelocity();
 	if (abs(velocity.x) >= abs(velocity.y))

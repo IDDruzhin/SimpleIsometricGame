@@ -26,10 +26,13 @@ void DrawableObject::Draw(shared_ptr<Screen> screen)
 	screen->Draw(graphics_component_);
 }
 
-void DrawableObject::UpdateSprite(uint cur_state_)
+void DrawableObject::UpdateSprite(int cur_state)
 {
 	bool need_update = false;
-	need_update = sprite_sheet_component_->SetState(cur_state_);
+	if (cur_state >= 0)
+	{
+		need_update = sprite_sheet_component_->SetState(cur_state);
+	}
 	if (need_update)
 	{
 		graphics_component_->SetSpriteRect(sprite_sheet_component_->GetCurRect());
@@ -44,9 +47,9 @@ void DrawableObject::UpdateSprite(uint cur_state_)
 	}
 }
 
-uint DrawableObject::GetState()
+int DrawableObject::GetState()
 {
-	return 0;
+	return -1;
 }
 
 void DrawableObject::Update()

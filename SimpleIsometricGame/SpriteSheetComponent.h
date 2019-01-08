@@ -21,7 +21,7 @@ public:
 	SpriteSheetComponent();
 	~SpriteSheetComponent();
 	void SetSheetInfo(shared_ptr<SheetInfo> sheet_info);
-	bool SetState(uint state);
+	bool SetState(int state);
 	bool NextFrame();
 	Rect GetCurRect();
 	uint GetTilesCount();

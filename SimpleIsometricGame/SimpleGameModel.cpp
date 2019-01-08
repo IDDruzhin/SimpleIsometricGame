@@ -29,6 +29,15 @@ void SimpleGameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 	GameSystem::GetInstance()->AddGridActor(actor);
 	actor = make_shared<Guardian>(graphics_engine_, grid_, int2(1, 1), int2(0, -1));
 	GameSystem::GetInstance()->AddGridActor(actor);
+
+	actor = make_shared<SimpleCannon>(graphics_engine_, grid_, int2(-1, 6));
+	GameSystem::GetInstance()->AddGridActor(actor);
+	actor = make_shared<SimpleCannon>(graphics_engine_, grid_, int2(grid_->GetDim().x, 3));
+	GameSystem::GetInstance()->AddGridActor(actor);
+	actor = make_shared<SimpleCannon>(graphics_engine_, grid_, int2(4, -1));
+	GameSystem::GetInstance()->AddGridActor(actor);
+	actor = make_shared<SimpleCannon>(graphics_engine_, grid_, int2(5, grid_->GetDim().y));
+	GameSystem::GetInstance()->AddGridActor(actor);
 	
 	//player_->MoveTo(int2(8, 5));
 }

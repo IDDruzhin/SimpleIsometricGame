@@ -82,7 +82,7 @@ Guardian::~Guardian()
 {
 }
 
-uint Guardian::GetState()
+int Guardian::GetState()
 {
 	float2 velocity = movement_component_->GetVelocity();
 	if (abs(velocity.x) >= abs(velocity.y))

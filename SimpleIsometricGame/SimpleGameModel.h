@@ -3,6 +3,7 @@
 #include "SimpleGrid.h"
 #include "Guardian.h"
 #include "PlayerCharacter.h"
+#include "SimpleCannon.h"
 class SimpleGameModel :
 	public GameModel
 {

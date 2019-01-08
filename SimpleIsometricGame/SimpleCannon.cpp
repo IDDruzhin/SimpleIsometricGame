@@ -22,21 +22,26 @@ SimpleCannon::SimpleCannon(shared_ptr<GraphicsEngine> graphics_engine, shared_pt
 	RegisterGraphics(graphics_engine, texture_path, sheet_info);
 	graphics_component_->SetOrigin(int2(sheet_info->window_size.x / 2, sheet_info->window_size.y - 25));
 	graphics_component_->SetScale(0.5f);
+	attack_component_ = make_shared<FireballAttack>(graphics_engine);
 	if (grid_location_.x < 0)
 	{
-		sprite_sheet_component_->SetState(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::RIGHT]);
+		UpdateSprite(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::RIGHT]);
+		//sprite_sheet_component_->SetState(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::RIGHT]);
 	}
 	else if (grid_location_.x >= grid_->GetDim().x)
 	{
-		sprite_sheet_component_->SetState(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::LEFT]);
+		UpdateSprite(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::LEFT]);
+		//sprite_sheet_component_->SetState(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::LEFT]);
 	}
 	else if (grid_location_.y >= grid_->GetDim().y)
 	{
-		sprite_sheet_component_->SetState(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::TOP]);
+		UpdateSprite(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::TOP]);
+		//sprite_sheet_component_->SetState(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::TOP]);
 	}
 	else if (grid_location_.y < 0)
 	{
-		sprite_sheet_component_->SetState(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::DOWN]);
+		UpdateSprite(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::DOWN]);
+		//sprite_sheet_component_->SetState(SIMPLE_CANNON_STATES[ACTOR_DIRECTION::DOWN]);
 	}
 }
 
