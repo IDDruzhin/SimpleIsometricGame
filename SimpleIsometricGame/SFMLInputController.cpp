@@ -26,6 +26,10 @@ void SFMLInputController::Update()
 		}
 		else if (e.type == sf::Event::MouseButtonPressed)
 		{
+			if (game_model_->IsGameOver())
+			{
+				continue;
+			}
 			sf::Vector2i screen(e.mouseButton.x, e.mouseButton.y);
 			sf::Vector2f world_pos = window_->mapPixelToCoords(screen);
 			//float2 grid_pos = game_model_->
@@ -52,6 +56,9 @@ void SFMLInputController::Update()
 			{
 			case sf::Keyboard::R:
 				game_model_->Restart();
+				break;
+			case sf::Keyboard::G:
+				game_model_->GenerateRandomMap();
 				break;
 			case sf::Keyboard::Z:
 				game_view_->Zoom(1.0f + zoom_ratio_);

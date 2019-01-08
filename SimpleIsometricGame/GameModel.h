@@ -10,7 +10,7 @@ protected:
 	shared_ptr<Grid> grid_;
 	shared_ptr<Unit> player_;
 	int2 finish_point_;
-	bool is_player_alive_;
+	bool game_over_;
 	int random_map_seed_;
 public:
 	GameModel();
@@ -23,6 +23,8 @@ public:
 	float2 GetGridCeneter();
 	virtual void ToggleGridBlockMask(float2 screen_pos);
 	virtual void MovePlayerTo(float2 screen_pos);
-	virtual void SetRandomMapSeed(int seed);
+	virtual void GenerateRandomMap(int seed);
+	virtual void GenerateRandomMap();
+	virtual bool IsGameOver();
 };
 

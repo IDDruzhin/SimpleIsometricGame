@@ -2,12 +2,12 @@
 #include "GameModel.h"
 
 
-GameModel::GameModel():is_player_alive_(true),random_map_seed_(0)
+GameModel::GameModel():game_over_(false),random_map_seed_(0)
 {
 }
 
 
-GameModel::GameModel(shared_ptr<GraphicsEngine> graphics_engine):is_player_alive_(true)
+GameModel::GameModel(shared_ptr<GraphicsEngine> graphics_engine): game_over_(false)
 {
 	Init(graphics_engine);
 }
@@ -24,6 +24,7 @@ void GameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 void GameModel::Restart()
 {
 	GameSystem::Reset();
+	game_over_ = false;
 	Init(graphics_engine_);
 }
 
@@ -78,7 +79,20 @@ void GameModel::MovePlayerTo(float2 screen_pos)
 	}
 }
 
-void GameModel::SetRandomMapSeed(int seed)
+void GameModel::GenerateRandomMap(int seed)
 {
-	random_map_seed_;
+	random_map_seed_ = seed;
+	Restart();
+}
+
+void GameModel::GenerateRandomMap()
+{
+	auto now = chrono::system_clock::now();
+	random_map_seed_ = chrono::duration_cast<chrono::milliseconds>(now.time_since_epoch()).count();
+	Restart();
+}
+
+bool GameModel::IsGameOver()
+{
+	return game_over_;
 }

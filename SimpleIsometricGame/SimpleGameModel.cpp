@@ -8,6 +8,7 @@ SimpleGameModel::SimpleGameModel()
 
 SimpleGameModel::SimpleGameModel(shared_ptr<GraphicsEngine> graphics_engine)
 {
+	random_map_seed_ = 106328;
 	Init(graphics_engine);
 }
 
@@ -18,14 +19,17 @@ SimpleGameModel::~SimpleGameModel()
 
 void SimpleGameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 {
-	int2 player_start(0, 0);
-	finish_point_ = int2(0, 0);
 	int cannons_count = 5;
 	int guardians_count = 7;
 
 	graphics_engine_ = graphics_engine;
 	grid_ = make_shared<SimpleGrid>(graphics_engine_, random_map_seed_);
 	GameSystem::GetInstance()->AddGrid(grid_);
+	int2 player_start(0, grid_->GetDim().y - 1);
+	finish_point_ = int2(grid_->GetDim().x - 1, 0);
+	grid_->SetFinishPoint(finish_point_);
+	grid_->SetBlockMask(player_start, false);
+	grid_->SetBlockMask(finish_point_, false);
 	player_ = make_shared<PlayerCharacter>(graphics_engine_, grid_, player_start);
 	GameSystem::GetInstance()->AddGridActor(player_);
 	shared_ptr<GridActor> actor;
@@ -55,6 +59,27 @@ void SimpleGameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 					dir.x = 1;
 				}
 			}
+			int2 tmp = pos + dir;
+			if (tmp.x == -1)
+			{
+				dir.x = 1;
+			}
+			else if (tmp.x == grid_->GetDim().x)
+			{
+				dir.x = -1;
+			}
+			else if (tmp.y == -1)
+			{
+				dir.y = 1;
+			}
+			else if (tmp.y == grid_->GetDim().y)
+			{
+				dir.y = -1;
+			}
+			if (grid_->CheckEmployMask(pos + dir))
+			{
+				continue;
+			}
 			actor = make_shared<Guardian>(graphics_engine_, grid_, pos, dir);
 			GameSystem::GetInstance()->AddGridActor(actor);
 			grid_->SetEmployMask(pos, true);
@@ -75,7 +100,8 @@ void SimpleGameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 			pos.y = dist_dir(gen);
 			if (pos.y == 0)
 			{
-				pos.x = -1;
+				//pos.x = -1;
+				continue;
 			}
 			else
 			{
@@ -147,24 +173,28 @@ void SimpleGameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 
 void SimpleGameModel::Update()
 {
-	//grid_->ClearEmployMask();
 	grid_->ClearKillzoneMask();
 	GameModel::Update();
-	//if (player_->IsActive() && grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
-	//if (grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
-	if (player_->IsActive() && grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
+	if (!game_over_)
 	{
-		player_->Destroy();
-		string game_over_image_path = "Content/Game_over_001.png";
-		shared_ptr<DrawableObject> game_over_screen = make_shared<DrawableObject>(graphics_engine_, game_over_image_path);
-		game_over_screen->CenterOrigin();
-		GameSystem::GetInstance()->AddScreenElement(game_over_screen);
+		if (player_->IsActive() && grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
+		{
+			player_->Destroy();
+			string game_over_image_path = "Content/Game_over_002.png";
+			shared_ptr<DrawableObject> lose_screen = make_shared<DrawableObject>(graphics_engine_, game_over_image_path);
+			lose_screen->CenterOrigin();
+			GameSystem::GetInstance()->AddScreenElement(lose_screen);
+			game_over_ = true;
+		}
+		if (player_->GetGridCellLocation() == finish_point_)
+		{
+			string game_over_image_path = "Content/Victory_003.png";
+			shared_ptr<DrawableObject> victory_screen = make_shared<DrawableObject>(graphics_engine_, game_over_image_path);
+			victory_screen->CenterOrigin();
+			GameSystem::GetInstance()->AddScreenElement(victory_screen);
+			game_over_ = true;
+		}
 	}
-	/*
-	grid_->ClearEmployMask();
-	actor_->Update();
-	player_->Update();
-	*/
 }
 
 void SimpleGameModel::Render(shared_ptr<Screen> screen)

@@ -11,6 +11,7 @@ protected:
 	Bitset employ_mask_;
 	Bitset killzone_mask_;
 	vector<unsigned char> cells_map_;
+	int2 finish_point_;
 	//shared_ptr<GraphicsComponent> cells_graphics_;
 public:
 	Grid();
@@ -42,5 +43,6 @@ public:
 	void ClearKillzoneMask();
 	void PrintMask(Bitset mask);
 	Bitset GetBlockMask();
+	void SetFinishPoint(int2 finish);
 };
 

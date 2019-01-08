@@ -151,7 +151,18 @@ void Grid::Draw(shared_ptr<Screen> screen)
 					//cell_screen_location.x += screen_location_.x;
 					//cell_screen_location.y += screen_location_.y;
 					graphics_component_->SetLocation(cell_screen_location);
-					screen->Draw(graphics_component_);
+					if (finish_point_.x == x && finish_point_.y == y)
+					{
+						//graphics_component_->SetColor(rand()%256, rand() % 256, rand() % 256);
+						graphics_component_->SetColor(255,0,0);
+						screen->Draw(graphics_component_);
+						graphics_component_->SetColor();
+					}
+					else
+					{
+						screen->Draw(graphics_component_);
+					}
+					//screen->Draw(graphics_component_);
 				}
 			}
 		}
@@ -276,5 +287,10 @@ void Grid::PrintMask(Bitset mask)
 Bitset Grid::GetBlockMask()
 {
 	return block_mask_;
+}
+
+void Grid::SetFinishPoint(int2 finish)
+{
+	finish_point_ = finish;
 }
 
