@@ -153,9 +153,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AttackComponent.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Bitset.h" />
+    <ClInclude Include="Cannon.h" />
     <ClInclude Include="DrawableObject.h" />
+    <ClInclude Include="FireBall.h" />
+    <ClInclude Include="FireballAttack.h" />
     <ClInclude Include="GameModel.h" />
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="GameView.h" />
@@ -169,6 +173,8 @@
     <ClInclude Include="PathMovement.h" />
     <ClInclude Include="PatrolMovement.h" />
     <ClInclude Include="PlayerCharacter.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="ProjectileShootComponent.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="SFMLGameView.h" />
     <ClInclude Include="SFMLGraphicsComponent.h" />
@@ -181,14 +187,19 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="TouchAttack.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="UnitMovementComponent.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AttackComponent.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="Bitset.cpp" />
+    <ClCompile Include="Cannon.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
+    <ClCompile Include="FireBall.cpp" />
+    <ClCompile Include="FireballAttack.cpp" />
     <ClCompile Include="GameModel.cpp" />
     <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="GameView.cpp" />
@@ -202,6 +213,8 @@
     <ClCompile Include="PathMovement.cpp" />
     <ClCompile Include="PatrolMovement.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="ProjectileShootComponent.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="SFMLGameView.cpp" />
     <ClCompile Include="SFMLGraphicsComponent.cpp" />
@@ -219,6 +232,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TouchAttack.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="UnitMovementComponent.cpp" />
   </ItemGroup>

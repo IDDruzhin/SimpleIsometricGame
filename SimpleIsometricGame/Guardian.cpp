@@ -74,6 +74,7 @@ Guardian::Guardian(shared_ptr<GraphicsEngine> graphics_engine, shared_ptr<Grid> 
 	}
 	movement_component_ = make_shared<PatrolMovement>(grid_location, patrol_locaton);
 	movement_component_->SetSpeed(1.7f);
+	attack_component = make_shared<AttackComponent>();
 }
 
 
@@ -140,7 +141,8 @@ uint Guardian::GetState()
 void Guardian::Update()
 {
 	Unit::Update();
-	grid_->SetKillzoneMask(GetGridCellLocation());
+	attack_component->Attack(grid_, GetGridCellLocation());
+	//grid_->SetKillzoneMask(GetGridCellLocation());
 }
 
 //const int Guardian::GUARDIAN_STATES[] = { 45,46,43,41,6,5,3,1 };
