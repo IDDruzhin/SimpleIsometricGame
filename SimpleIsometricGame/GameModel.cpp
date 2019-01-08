@@ -21,6 +21,12 @@ void GameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 	graphics_engine_ = graphics_engine;
 }
 
+void GameModel::Restart()
+{
+	GameSystem::Reset();
+	Init(graphics_engine_);
+}
+
 void GameModel::Update()
 {
 	GameSystem::GetInstance()->Update();

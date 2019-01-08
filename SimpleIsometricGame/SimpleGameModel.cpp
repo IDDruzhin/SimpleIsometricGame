@@ -27,14 +27,21 @@ void SimpleGameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 
 	actor = make_shared<Guardian>(graphics_engine_, grid_, int2(0, 0), int2(1, 0));
 	GameSystem::GetInstance()->AddGridActor(actor);
+	actor = make_shared<Guardian>(graphics_engine_, grid_, int2(1, 1), int2(0, -1));
+	GameSystem::GetInstance()->AddGridActor(actor);
 	
 	//player_->MoveTo(int2(8, 5));
 }
 
 void SimpleGameModel::Update()
 {
-	grid_->ClearEmployMask();
+	//grid_->ClearEmployMask();
+	grid_->ClearKillzoneMask();
 	GameModel::Update();
+	if (grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
+	{
+		player_->Destroy();
+	}
 	/*
 	grid_->ClearEmployMask();
 	actor_->Update();
@@ -54,3 +61,11 @@ void SimpleGameModel::Render(shared_ptr<Screen> screen)
 	*/
 	GameSystem::GetInstance()->Render(screen);
 }
+
+/*
+void SimpleGameModel::Restart()
+{
+	GameModel::Restart();
+	Init(graphics_engine_);
+}
+*/

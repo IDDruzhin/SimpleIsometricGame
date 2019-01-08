@@ -46,5 +46,16 @@ void SFMLInputController::Update()
 				break;
 			}
 		}
+		else if (e.type == sf::Event::KeyPressed)
+		{
+			switch (e.key.code)
+			{
+			case sf::Keyboard::R:
+				game_model_->Restart();
+				break;
+			default:
+				break;
+			}
+		}
 	}
 }

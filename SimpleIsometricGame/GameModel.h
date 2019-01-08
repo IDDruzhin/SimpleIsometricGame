@@ -14,6 +14,7 @@ public:
 	GameModel(shared_ptr<GraphicsEngine> graphics_engine);
 	~GameModel();
 	virtual void Init(shared_ptr<GraphicsEngine> graphics_engine);
+	virtual void Restart();
 	virtual void Update();
 	virtual void Render(shared_ptr<Screen> screen);
 	float2 GetGridCeneter();

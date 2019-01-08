@@ -32,3 +32,14 @@ bool BaseObject::IsActive()
 	return is_active_;
 }
 
+void BaseObject::SetActivity(bool is_active)
+{
+	is_active_ = is_active;
+}
+
+void BaseObject::Destroy()
+{
+	SetActivity(false);
+}
+
+
