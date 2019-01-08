@@ -27,7 +27,6 @@ void GridActor::SetGridCellLocation(float2 grid_location)
 int2 GridActor::GetGridCellLocation()
 {
 	int2 cell_location(floor(grid_location_.x), floor(grid_location_.y));
-	//float a = floor(grid_location_.x);
 	return cell_location;
 }
 

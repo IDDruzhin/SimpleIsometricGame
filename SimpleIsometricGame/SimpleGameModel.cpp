@@ -132,43 +132,6 @@ void SimpleGameModel::Init(shared_ptr<GraphicsEngine> graphics_engine)
 			}
 		}
 	}
-
-	//actor = make_shared<SimpleCannon>(graphics_engine_, grid_, int2(4, -1));
-	/*
-	while (k < guardians_count)
-	{
-
-	}
-	for (int i = 0; i < size; i++)
-	{
-		if (dist(gen))
-		{
-			//SetBlockMask(i, true);
-			block_mask_.Set(i, true);
-		}
-	}
-	//uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->);
-	if (sprite_sheet_component_)
-	{
-		uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->GetTilesCount() - 1);
-		generate(cells_map_.begin(), cells_map_.end(), [&sprite_dist, &gen]() { return sprite_dist(gen); });
-	}
-	///
-	actor = make_shared<Guardian>(graphics_engine_, grid_, int2(0, 0), int2(1, 0));
-	GameSystem::GetInstance()->AddGridActor(actor);
-	actor = make_shared<Guardian>(graphics_engine_, grid_, int2(1, 1), int2(0, -1));
-	GameSystem::GetInstance()->AddGridActor(actor);
-
-	actor = make_shared<SimpleCannon>(graphics_engine_, grid_, int2(-1, 6));
-	GameSystem::GetInstance()->AddGridActor(actor);
-	actor = make_shared<SimpleCannon>(graphics_engine_, grid_, int2(grid_->GetDim().x, 3));
-	GameSystem::GetInstance()->AddGridActor(actor);
-	actor = make_shared<SimpleCannon>(graphics_engine_, grid_, int2(4, -1));
-	GameSystem::GetInstance()->AddGridActor(actor);
-	actor = make_shared<SimpleCannon>(graphics_engine_, grid_, int2(5, grid_->GetDim().y));
-	GameSystem::GetInstance()->AddGridActor(actor);
-	*/
-	//player_->MoveTo(int2(8, 5));
 }
 
 void SimpleGameModel::Update()
@@ -199,21 +162,6 @@ void SimpleGameModel::Update()
 
 void SimpleGameModel::Render(shared_ptr<Screen> screen)
 {
-	/*
-	screen->Clear();
-	grid_->Draw(screen);
-	actor_->Draw(screen);
-	player_->Draw(screen);
-	//cout << "Actor: " << actor_->GetScreenLocation().x << " " << actor_->GetScreenLocation().y << endl;
-	screen->Present();
-	*/
 	GameSystem::GetInstance()->Render(screen);
 }
 
-/*
-void SimpleGameModel::Restart()
-{
-	GameModel::Restart();
-	Init(graphics_engine_);
-}
-*/

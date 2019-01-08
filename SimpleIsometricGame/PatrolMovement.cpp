@@ -39,12 +39,6 @@ void PatrolMovement::Move(shared_ptr<Grid> grid, float2 & location)
 			SetDirection(dest_vector);
 			if (!(grid->CheckBlockMask(destination_) || grid->CheckEmployMask(destination_)))
 			{
-				/*
-				float2 dest_vector;
-				dest_vector.x = destination_.x + 0.5f - location.x;
-				dest_vector.y = destination_.y + 0.5f - location.y;
-				SetDirection(dest_vector);
-				*/
 				is_moving_ = true;
 				grid->SetEmployMask(destination_,true);
 			}

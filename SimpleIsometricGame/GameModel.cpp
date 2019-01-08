@@ -35,11 +35,6 @@ void GameModel::Update()
 
 void GameModel::Render(shared_ptr<Screen> screen)
 {
-	/*
-	screen->Clear();
-	grid_->Draw(screen);
-	screen->Present();
-	*/
 	GameSystem::GetInstance()->Render(screen);
 }
 
@@ -51,11 +46,9 @@ float2 GameModel::GetGridCenter()
 void GameModel::ToggleGridBlockMask(float2 screen_pos)
 {
 	float2 grid_pos = grid_->ScreenToGrid(screen_pos);
-	cout << "Grid pos:" << grid_pos.x << " " << grid_pos.y << endl;
 	if (grid_->IsInsideGrid(grid_pos))
 	{
 		int2 cell_pos = int2(grid_pos.x, grid_pos.y);
-		//float2 player_cell_location = player_->GetGridCellLocation();
 		if (!(grid_->CheckEmployMask(cell_pos)) && (player_->GetGridCellLocation() != cell_pos) && (player_->GetDestination() != cell_pos))
 		{
 			bool block = grid_->CheckBlockMask(cell_pos);
@@ -68,7 +61,6 @@ void GameModel::ToggleGridBlockMask(float2 screen_pos)
 void GameModel::MovePlayerTo(float2 screen_pos)
 {
 	float2 grid_pos = grid_->ScreenToGrid(screen_pos);
-	//cout << "Grid pos:" << grid_pos.x << " " << grid_pos.y << endl;
 	if (grid_->IsInsideGrid(grid_pos))
 	{
 		int2 cell_pos = int2(grid_pos.x, grid_pos.y);

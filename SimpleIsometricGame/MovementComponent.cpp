@@ -45,8 +45,6 @@ void MovementComponent::UpdateLocation(float2 & location)
 	float ratio = GameSystem::GetInstance()->GetElapsedSeconds();
 	location.x += velocity_.x * ratio;
 	location.y += velocity_.y * ratio;
-	//location.x += velocity_.x;
-	//location.y += velocity_.y;
 }
 
 bool MovementComponent::IsMoving()

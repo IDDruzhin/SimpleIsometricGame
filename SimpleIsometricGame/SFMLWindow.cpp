@@ -8,7 +8,6 @@ SFMLWindow::SFMLWindow()
 	
 	sf::View v;
 	v.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-	//v.setCenter(0, DEFAULT_HEIGHT*0.7f);
 	v.zoom(2.0f);
 	window_->setView(v);
 	
@@ -18,15 +17,10 @@ SFMLWindow::SFMLWindow()
 SFMLWindow::SFMLWindow(uint2 size, string name)
 {
 	window_ = make_shared<sf::RenderWindow>(sf::VideoMode(size.x, size.y), name);
-	//sf::View v = window_->getView();
-	//float ratio = (float)size.x / DEFAULT_WIDTH;
-	//float ratio = (float)DEFAULT_WIDTH / size.x;
-	//v.zoom(ratio);
 	sf::View v;
 	float ratio = (float)DEFAULT_WIDTH / size.x;
 	float height = ratio * size.y;
 	v.setSize(DEFAULT_WIDTH, height);
-	//v.setCenter(0, height / 2);
 	v.zoom(2.0f);
 	window_->setView(v);
 }
@@ -46,8 +40,6 @@ void SFMLWindow::Draw(shared_ptr<GraphicsComponent> graphics_component)
 	shared_ptr<SFMLGraphicsComponent> cur_graphics_component = dynamic_pointer_cast<SFMLGraphicsComponent>(graphics_component);
 	if (cur_graphics_component)
 	{
-		//sf::Transform t;
-		//t.scale(100.0f / 1024, 100.0f / 1024);
 		window_->draw(cur_graphics_component->GetSprite());
 	}
 }
@@ -84,7 +76,6 @@ void SFMLWindow::SetCenter(float2 center)
 float2 SFMLWindow::GetCenter()
 {
 	sf::View v = window_->getView();
-	//sf::Vector2f coord = window_->mapPixelToCoords(v.getCenter());
 	return float2(v.getCenter().x, v.getCenter().y);
 }
 

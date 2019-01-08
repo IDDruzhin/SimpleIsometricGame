@@ -34,22 +34,6 @@ void GameSystem::Update()
 {
 	elapsed_seconds_ = timer_.GetElapsedSeconds();
 	timer_.Restart();
-	/*
-	for (auto it = grid_actors_.begin(); it != grid_actors_.end(); )
-	{
-		if ((*it)->IsActive())
-		{
-			(*it)->Update();
-			it++;
-		}
-		else
-		{
-			int dist = distance(grid_actors_.begin(), it);
-			grid_actors_.erase(it);
-			it = grid_actors_.begin() + dist;
-		}
-	}
-	*/
 	for (auto it = grid_actors_.begin(); it != grid_actors_.end(); )
 	{
 		if ((*it)->IsActive())
@@ -74,22 +58,6 @@ void GameSystem::Update()
 			it = screen_elements_.erase(it);
 		}
 	}
-	/*
-	for (auto it = screen_elements_.begin(); it != screen_elements_.end(); )
-	{
-		if ((*it)->IsActive())
-		{
-			(*it)->Update();
-			it++;
-		}
-		else
-		{
-			int dist = distance(screen_elements_.begin(), it);
-			screen_elements_.erase(it);
-			it = screen_elements_.begin() + dist;
-		}
-	}
-	*/
 }
 
 void GameSystem::Render(shared_ptr<Screen> screen)
@@ -101,14 +69,12 @@ void GameSystem::Render(shared_ptr<Screen> screen)
 	}
 	//Depth sort
 	grid_actors_.sort([](shared_ptr<GridActor> a, shared_ptr<GridActor> b) {return (a->GetScreenLocation().y < b->GetScreenLocation().y); });
-	//sort(grid_actors_.begin(), grid_actors_.end(), [](shared_ptr<GridActor> a, shared_ptr<GridActor> b) {return (a->GetScreenLocation().y < b->GetScreenLocation().y); });
 	for (auto it = grid_actors_.begin(); it != grid_actors_.end(); it++)
 	{
 		(*it)->Draw(screen);
 	}
 	for (auto it = screen_elements_.begin(); it != screen_elements_.end(); it++)
 	{
-		//(*it)->SetScreenLocation(screen->)
 		float2 center = screen->GetCenter();
 		float2 size = screen->GetSize();
 		float2 pos;
@@ -116,13 +82,8 @@ void GameSystem::Render(shared_ptr<Screen> screen)
 		Rect r;
 		r = (*it)->GetSpriteRect();
 		pos = screen->PixelToCoord(int2(0,0));
-		//pos = float2(-1000, 0);
-		//pos.x = center.x - size.x / 2.0f;
-		//pos.y = center.y - size.y / 2.0f;
 		scale.x = size.x / r.size.x;
 		scale.y = size.y / r.size.y;
-		
-		//(*it)->SetScreenLocation(pos);
 		(*it)->SetScale(scale);
 		(*it)->SetScreenLocation(center);
 		(*it)->Draw(screen);

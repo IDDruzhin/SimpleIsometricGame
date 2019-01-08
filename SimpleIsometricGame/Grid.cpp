@@ -6,18 +6,6 @@ Grid::Grid()
 {
 }
 
-/*
-Grid::Grid(uint2 dim, float2 cell_offset, shared_ptr<GraphicsEngine> graphics_engine, const string &cell_texture_path)
-{
-	dim_ = dim;
-	uint size = dim_.x*dim_.y;
-	block_mask_.Resize(size);
-	block_mask_.Clear(true);
-	cell_offset_ = cell_offset;
-	//RegisterCellsGraphics(graphics_engine, cell_texture_path);
-}
-*/
-
 Grid::~Grid()
 {
 }
@@ -59,31 +47,8 @@ float2 Grid::GetCellOffset()
 	return cell_offset_;
 }
 
-/*
-void Grid::SetCellsMap(vector<unsigned char> cells_map)
-{
-	if (cells_map.size() == dim_.x * dim_.y)
-	{
-		cells_map_ = cells_map;
-	}
-}
-*/
-
-/*
-void Grid::RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path)
-{
-	graphics_engine->RegisterGraphicsResource(graphics_component_, path);
-}
-
-void Grid::RegisterCellsGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path, SheetInfo sheet_info)
-{
-	graphics_engine->RegisterGraphicsResource(graphics_component_, sprite_sheet_component_, path, sheet_info);
-}
-*/
-
 void Grid::GenerateRandomGrid(int seed)
 {
-	//cells_map_.resize(dim_.x * dim_.y);
 	uint size = dim_.x * dim_.y;
 	block_mask_.Clear();
 	block_mask_.Resize(size);
@@ -94,17 +59,14 @@ void Grid::GenerateRandomGrid(int seed)
 	{
 		if (dist(gen))
 		{
-			//SetBlockMask(i, true);
 			block_mask_.Set(i, true);
 		}
 	}
-	//uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->);
 	if (sprite_sheet_component_)
 	{
 		uniform_int_distribution<int> sprite_dist(0, sprite_sheet_component_->GetTilesCount()-1);
 		generate(cells_map_.begin(), cells_map_.end(), [&sprite_dist, &gen]() { return sprite_dist(gen); });
 	}
-	//generate(cells_map_.begin(), cells_map_.end(), [&dist, &gen]() { return dist(gen); });
 }
 
 void Grid::Draw(shared_ptr<Screen> screen)
@@ -124,8 +86,6 @@ void Grid::Draw(shared_ptr<Screen> screen)
 					cell_grid_location.x = x;
 					cell_grid_location.y = y;
 					cell_screen_location = GridToScreen(cell_grid_location);
-					//cell_screen_location.x += screen_location_.x;
-					//cell_screen_location.y += screen_location_.y;
 					graphics_component_->SetLocation(cell_screen_location);
 					screen->Draw(graphics_component_);
 				}
@@ -148,12 +108,9 @@ void Grid::Draw(shared_ptr<Screen> screen)
 					cell_grid_location.x = x;
 					cell_grid_location.y = y;
 					cell_screen_location = GridToScreen(cell_grid_location);
-					//cell_screen_location.x += screen_location_.x;
-					//cell_screen_location.y += screen_location_.y;
 					graphics_component_->SetLocation(cell_screen_location);
 					if (finish_point_.x == x && finish_point_.y == y)
 					{
-						//graphics_component_->SetColor(rand()%256, rand() % 256, rand() % 256);
 						graphics_component_->SetColor(255,0,0);
 						screen->Draw(graphics_component_);
 						graphics_component_->SetColor();
@@ -162,7 +119,6 @@ void Grid::Draw(shared_ptr<Screen> screen)
 					{
 						screen->Draw(graphics_component_);
 					}
-					//screen->Draw(graphics_component_);
 				}
 			}
 		}
@@ -172,12 +128,6 @@ void Grid::Draw(shared_ptr<Screen> screen)
 float2 Grid::GridToScreen(float2 grid_pos)
 {
 	float2 screen_pos;
-	/*
-	screen_pos.x = grid_pos.x - grid_pos.y;
-	screen_pos.y = (grid_pos.x + grid_pos.y) / 2.0f;
-	*/
-	//grid_pos.x -= screen_location_.x;
-	//grid_pos.y -= screen_location_.y;
 	screen_pos.x = screen_location_.x + (grid_pos.x - grid_pos.y) * cell_offset_.x;
 	screen_pos.y = screen_location_.y + (grid_pos.x + grid_pos.y) * cell_offset_.y;
 	return screen_pos;
@@ -186,13 +136,8 @@ float2 Grid::GridToScreen(float2 grid_pos)
 float2 Grid::ScreenToGrid(float2 screen_pos)
 {
 	float2 grid_pos;
-	/*
-	grid_pos.x = (2 * screen_pos.y + screen_pos.x) / 2.0f;
-	grid_pos.y = (2 * screen_pos.y - screen_pos.x) / 2.0f;
-	*/
 	screen_pos.x -= screen_location_.x;
 	screen_pos.y -= screen_location_.y;
-	//screen_pos.x -= cell_offset_.x;
 	grid_pos.x = (screen_pos.x / cell_offset_.x + screen_pos.y / cell_offset_.y) / 2.0f;
 	grid_pos.y = (screen_pos.y / cell_offset_.y - (screen_pos.x / cell_offset_.x)) / 2.0f;
 	return grid_pos;

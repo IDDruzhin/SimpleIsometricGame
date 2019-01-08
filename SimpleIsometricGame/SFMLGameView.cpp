@@ -8,7 +8,6 @@ SFMLGameView::SFMLGameView()
 	uint2 size;
 	size.x = 500;
 	size.y = 500;
-	//screen_ = make_shared<SFMLWindow>(size,"Low");
 }
 
 

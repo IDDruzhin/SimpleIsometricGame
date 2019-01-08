@@ -39,8 +39,6 @@ shared_ptr<Projectile> Projectile::Clone()
 	shared_ptr<Projectile> copy = make_shared<Projectile>();
 	copy->graphics_component_ = graphics_component_->Clone();
 	copy->sprite_sheet_component_ = sprite_sheet_component_->Clone();
-	//copy->movement_component_ = movement_component_;
-	//copy->attack_component_ = attack_component;
 	return copy;
 }
 

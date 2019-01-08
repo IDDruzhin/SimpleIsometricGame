@@ -60,12 +60,6 @@ void DrawableObject::Update()
 		UpdateSprite(GetState());
 	}
 }
-/*
-float2 DrawableObject::GetSize()
-{
-	return graphics_component_->GetSpriteRect();
-}
-*/
 
 void DrawableObject::SetScale(float scale)
 {

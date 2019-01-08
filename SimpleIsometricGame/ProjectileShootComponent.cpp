@@ -5,7 +5,6 @@ void ProjectileShootComponent::SpawnProjectile(shared_ptr<Grid> grid, int2 cur_l
 {
 	shared_ptr<Projectile> projectile = GetProjectile();
 	projectile->SetGrid(grid);
-	//int2 grid_cell_loc = cur_location + direction_;
 	float2 loc;
 	loc.x = cur_location.x + direction_.x + 0.5f;
 	loc.y = cur_location.y + direction_.y + 0.5f;

@@ -31,13 +31,6 @@ void Unit::UpdateMovement()
 	movement_component_->UpdateMovement(grid_);
 }
 
-/*
-void Unit::SetDestination(int2 destination)
-{
-	movement_component_->SetDestination(destination);
-}
-*/
-
 int2 Unit::GetDestination()
 {
 	return movement_component_->GetDestination();

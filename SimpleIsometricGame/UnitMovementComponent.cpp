@@ -29,7 +29,6 @@ bool UnitMovementComponent::FinishAtDestination(float2 &location)
 	{
 		location.x = tmp.x;
 		location.y = tmp.y;
-		//is_moving_ = false;
 		return true;
 	}
 	return false;
