@@ -14,7 +14,7 @@ GameView::~GameView()
 void GameView::SetModel(shared_ptr<GameModel> model)
 {
 	model_ = model;
-	screen_->SetCenter(model_->GetGridCeneter());
+	screen_->SetCenter(model_->GetGridCenter());
 }
 
 bool GameView::IsRunning()

@@ -43,7 +43,7 @@ void GameModel::Render(shared_ptr<Screen> screen)
 	GameSystem::GetInstance()->Render(screen);
 }
 
-float2 GameModel::GetGridCeneter()
+float2 GameModel::GetGridCenter()
 {
 	return grid_->GetGridCenter();
 }

@@ -3,7 +3,6 @@
 #include "SFMLGraphicsEngine.h"
 #include "SFMLWindow.h"
 #include "SFMLInputController.h"
-//class SFMLInputController;
 
 class SFMLGameView :
 	public GameView

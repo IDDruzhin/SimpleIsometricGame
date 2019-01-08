@@ -7,12 +7,12 @@ protected:
 	float2 velocity_;
 	float speed_;
 	bool is_moving_;
+	void UpdateLocation(float2 &location);
 public:
 	MovementComponent();
 	~MovementComponent();
 	void SetSpeed(float speed);
 	void SetDirection(float2 dir);
-	void UpdateLocation(float2 &location);
 	bool IsMoving();
 	void SetMovement(bool is_moving);
 	float2 GetVelocity();

@@ -1,6 +1,5 @@
 #pragma once
 #include "GraphicsComponent.h"
-//#include "InputController.h"
 #define DEFAULT_WIDTH 1024
 #define DEFAULT_HEIGHT 768
 
@@ -18,6 +17,5 @@ public:
 	virtual float2 GetCenter() = 0;
 	virtual float2 GetSize() = 0;
 	virtual float2 PixelToCoord(int2 pixel_pos) = 0;
-	//virtual Rect GetCoordRect() = 0;
 };
 

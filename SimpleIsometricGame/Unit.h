@@ -25,7 +25,6 @@ public:
 	virtual void Update();
 	virtual void MoveTo(int2 finish);
 	virtual void UpdateMovement();
-	//virtual void SetDestination(int2 destination);
 	int2 GetDestination();
 };
 

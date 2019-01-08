@@ -16,7 +16,5 @@ public:
 	bool IsActive();
 	virtual void SetActivity(bool is_active);
 	virtual void Destroy();
-	//virtual void Draw(shared_ptr<GraphicsEngine> graphics_engine) = 0;
-	//virtual void Draw(shared_ptr<Screen> screen) = 0;
 };
 

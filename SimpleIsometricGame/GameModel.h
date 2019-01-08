@@ -20,7 +20,7 @@ public:
 	virtual void Restart();
 	virtual void Update();
 	virtual void Render(shared_ptr<Screen> screen);
-	float2 GetGridCeneter();
+	float2 GetGridCenter();
 	virtual void ToggleGridBlockMask(float2 screen_pos);
 	virtual void MovePlayerTo(float2 screen_pos);
 	virtual void GenerateRandomMap(int seed);
