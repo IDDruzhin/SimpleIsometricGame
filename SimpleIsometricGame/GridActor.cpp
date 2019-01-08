@@ -40,3 +40,8 @@ void GridActor::Update()
 	screen_location_ = grid_->GridToScreen(grid_location_);
 	DrawableObject::Update();
 }
+
+void GridActor::SetGrid(shared_ptr<Grid> grid)
+{
+	grid_ = grid;
+}

@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "Projectile.h"
 
+Projectile::Projectile()
+{
+	attack_component = make_shared<AttackComponent>();
+}
+
 Projectile::Projectile(shared_ptr<GraphicsEngine> graphics_engine, shared_ptr<Grid> grid, int2 grid_location, float2 dir, float speed):GridActor(grid, grid_location)
 {
 	movement_component_->SetDirection(dir);
@@ -28,5 +33,18 @@ void Projectile::Update()
 
 shared_ptr<Projectile> Projectile::Copy()
 {
-	return shared_ptr<Projectile>();
+	shared_ptr<Projectile> copy = make_shared<Projectile>();
+	copy->graphics_component_ = graphics_component_;
+	copy->sprite_sheet_component_ = sprite_sheet_component_;
+	return copy;
+}
+
+void Projectile::SetSpeed(float speed)
+{
+	movement_component_->SetSpeed(speed);
+}
+
+void Projectile::SetDirection(float2 dir)
+{
+	movement_component_->SetDirection(dir);
 }

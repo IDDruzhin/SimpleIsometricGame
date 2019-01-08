@@ -15,5 +15,6 @@ public:
 	int2 GetGridCellLocation();
 	float2 GetGridLocation();
 	virtual void Update();
+	virtual void SetGrid(shared_ptr<Grid> grid);
 };
 
