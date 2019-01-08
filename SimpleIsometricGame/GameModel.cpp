@@ -2,12 +2,12 @@
 #include "GameModel.h"
 
 
-GameModel::GameModel()
+GameModel::GameModel():is_player_alive_(true)
 {
 }
 
 
-GameModel::GameModel(shared_ptr<GraphicsEngine> graphics_engine)
+GameModel::GameModel(shared_ptr<GraphicsEngine> graphics_engine):is_player_alive_(true)
 {
 	Init(graphics_engine);
 }

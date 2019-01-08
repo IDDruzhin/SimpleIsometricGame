@@ -38,9 +38,15 @@ void SimpleGameModel::Update()
 	//grid_->ClearEmployMask();
 	grid_->ClearKillzoneMask();
 	GameModel::Update();
-	if (grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
+	//if (player_->IsActive() && grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
+	//if (grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
+	if (player_->IsActive() && grid_->CheckKillzoneMask(player_->GetGridCellLocation()))
 	{
 		player_->Destroy();
+		string game_over_image_path = "Content/crusader_idle_00000.png";
+		shared_ptr<DrawableObject> game_over_screen = make_shared<DrawableObject>(graphics_engine_, game_over_image_path);
+		game_over_screen->CenterOrigin();
+		GameSystem::GetInstance()->AddScreenElement(game_over_screen);
 	}
 	/*
 	grid_->ClearEmployMask();

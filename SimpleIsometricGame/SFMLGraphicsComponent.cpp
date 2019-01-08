@@ -31,9 +31,25 @@ void SFMLGraphicsComponent::SetScale(float scale)
 	sprite_.setScale(scale,scale);
 }
 
+void SFMLGraphicsComponent::SetScale(float2 scale)
+{
+	sprite_.setScale(scale.x, scale.y);
+}
+
+void SFMLGraphicsComponent::Scale(float2 scale)
+{
+	sprite_.scale(sf::Vector2f(scale.x,scale.y));
+}
+
 void SFMLGraphicsComponent::SetOrigin(int2 origin)
 {
 	sprite_.setOrigin(origin.x, origin.y);
+}
+
+void SFMLGraphicsComponent::CenterOrigin()
+{
+	sf::IntRect tmp = sprite_.getTextureRect();
+	sprite_.setOrigin(tmp.width/2.0f,tmp.height/2.0f);
 }
 
 void SFMLGraphicsComponent::SetSpriteRect(Rect r)

@@ -79,6 +79,23 @@ void GameSystem::Render(shared_ptr<Screen> screen)
 	}
 	for (auto it = screen_elements_.begin(); it != screen_elements_.end(); it++)
 	{
+		//(*it)->SetScreenLocation(screen->)
+		float2 center = screen->GetCenter();
+		float2 size = screen->GetSize();
+		float2 pos;
+		float2 scale;
+		Rect r;
+		r = (*it)->GetSpriteRect();
+		pos = screen->PixelToCoord(int2(0,0));
+		//pos = float2(-1000, 0);
+		//pos.x = center.x - size.x / 2.0f;
+		//pos.y = center.y - size.y / 2.0f;
+		scale.x = size.x / r.size.x;
+		scale.y = size.y / r.size.y;
+		
+		//(*it)->SetScreenLocation(pos);
+		(*it)->SetScale(scale);
+		(*it)->SetScreenLocation(center);
 		(*it)->Draw(screen);
 	}
 	screen->Present();

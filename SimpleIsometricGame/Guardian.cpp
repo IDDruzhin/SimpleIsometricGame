@@ -47,7 +47,8 @@ Guardian::Guardian(shared_ptr<GraphicsEngine> graphics_engine, shared_ptr<Grid> 
 	{
 		sheet_info->sheet_intervals.push_back(uint2(i, 0));
 	}
-	graphics_engine->RegisterGraphicsResource(graphics_component_, sprite_sheet_component_, texture_path, sheet_info);
+	//graphics_engine->RegisterGraphicsResource(graphics_component_, sprite_sheet_component_, texture_path, sheet_info);
+	RegisterGraphics(graphics_engine, texture_path, sheet_info);
 	graphics_component_->SetOrigin(int2(sheet_info->window_size.x / 2, sheet_info->window_size.y - 25));
 	graphics_component_->SetScale(0.5f);
 	sprite_sheet_component_->SetPlayRate(0.1f);

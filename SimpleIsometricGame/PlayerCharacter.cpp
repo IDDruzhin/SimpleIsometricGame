@@ -19,7 +19,8 @@ PlayerCharacter::PlayerCharacter(shared_ptr<GraphicsEngine> graphics_engine, sha
 	{
 		sheet_info->sheet_intervals.push_back(uint2(i, 0));
 	}
-	graphics_engine->RegisterGraphicsResource(graphics_component_, sprite_sheet_component_, texture_path, sheet_info);
+	RegisterGraphics(graphics_engine, texture_path, sheet_info);
+	//graphics_engine->RegisterGraphicsResource(graphics_component_, sprite_sheet_component_, texture_path, sheet_info);
 	graphics_component_->SetOrigin(int2(sheet_info->window_size.x / 2, sheet_info->window_size.y - 25));
 	graphics_component_->SetScale(0.5f);
 	sprite_sheet_component_->SetPlayRate(0.1f);
@@ -87,13 +88,16 @@ uint PlayerCharacter::GetState()
 	return uint();
 }
 
+
 void PlayerCharacter::Update()
 {
 	Unit::Update();
+	/*
 	if (grid_->CheckKillzoneMask(GetGridCellLocation()))
 	{
 		is_active_ = false;
 	}
+	*/
 }
 
 //const int PlayerCharacter::PLAYER_CHARACTER_STATES[UNIT_STATE::STATES_COUNT] = {40,47,44,42,0,7,4,2};

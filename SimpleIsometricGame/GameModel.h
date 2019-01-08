@@ -9,6 +9,7 @@ protected:
 	shared_ptr<GraphicsEngine> graphics_engine_;
 	shared_ptr<Grid> grid_;
 	shared_ptr<Unit> player_;
+	bool is_player_alive_;
 public:
 	GameModel();
 	GameModel(shared_ptr<GraphicsEngine> graphics_engine);

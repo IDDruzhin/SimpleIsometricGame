@@ -10,11 +10,18 @@ protected:
 	shared_ptr<SpriteSheetComponent> sprite_sheet_component_;
 public:
 	DrawableObject();
+	DrawableObject(shared_ptr<GraphicsEngine> graphics_engine, string path, shared_ptr<SheetInfo> sheet_info = nullptr);
 	~DrawableObject();
 	virtual void RegisterGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path, shared_ptr<SheetInfo> sheet_info = nullptr);
 	virtual void Draw(shared_ptr<Screen> screen);
 	virtual void UpdateSprite(uint cur_state_);
 	virtual uint GetState();
 	virtual void Update();
+	//virtual float2 GetSize();
+	virtual void SetScale(float scale);
+	virtual void SetScale(float2 scale);
+	virtual void Scale(float2 scale);
+	virtual Rect GetSpriteRect();
+	virtual void CenterOrigin();
 };
 

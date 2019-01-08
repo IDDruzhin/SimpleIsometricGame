@@ -6,6 +6,11 @@ DrawableObject::DrawableObject()
 {
 }
 
+DrawableObject::DrawableObject(shared_ptr<GraphicsEngine> graphics_engine, string path, shared_ptr<SheetInfo> sheet_info)
+{
+	RegisterGraphics(graphics_engine, path, sheet_info);
+}
+
 
 DrawableObject::~DrawableObject()
 {
@@ -13,6 +18,7 @@ DrawableObject::~DrawableObject()
 
 void DrawableObject::RegisterGraphics(shared_ptr<GraphicsEngine> graphics_engine, string path, shared_ptr<SheetInfo> sheet_info)
 {
+	graphics_engine->RegisterGraphicsResource(graphics_component_, sprite_sheet_component_, path, sheet_info);
 }
 
 void DrawableObject::Draw(shared_ptr<Screen> screen)
@@ -50,4 +56,35 @@ void DrawableObject::Update()
 	{
 		UpdateSprite(GetState());
 	}
+}
+/*
+float2 DrawableObject::GetSize()
+{
+	return graphics_component_->GetSpriteRect();
+}
+*/
+
+void DrawableObject::SetScale(float scale)
+{
+	graphics_component_->SetScale(scale);
+}
+
+void DrawableObject::Scale(float2 scale)
+{
+	graphics_component_->Scale(scale);
+}
+
+void DrawableObject::SetScale(float2 scale)
+{
+	graphics_component_->SetScale(scale);
+}
+
+Rect DrawableObject::GetSpriteRect()
+{
+	return graphics_component_->GetSpriteRect();
+}
+
+void DrawableObject::CenterOrigin()
+{
+	graphics_component_->CenterOrigin();
 }

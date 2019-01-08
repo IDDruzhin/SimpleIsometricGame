@@ -80,3 +80,22 @@ void SFMLWindow::SetCenter(float2 center)
 	v.setCenter(center.x, center.y);
 	window_->setView(v);
 }
+
+float2 SFMLWindow::GetCenter()
+{
+	sf::View v = window_->getView();
+	//sf::Vector2f coord = window_->mapPixelToCoords(v.getCenter());
+	return float2(v.getCenter().x, v.getCenter().y);
+}
+
+float2 SFMLWindow::GetSize()
+{
+	sf::View v = window_->getView();
+	return float2(v.getSize().x, v.getSize().y);
+}
+
+float2 SFMLWindow::PixelToCoord(int2 pixel_pos)
+{
+	auto world_pos = window_->mapPixelToCoords(sf::Vector2i(pixel_pos.x, pixel_pos.y));
+	return float2(world_pos.x, world_pos.y);
+}

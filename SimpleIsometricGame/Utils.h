@@ -117,4 +117,10 @@ struct Rect
 	uint2 left_top;
 	uint2 size;
 	Rect() {};
+	Rect& operator=(const Rect &copy)
+	{
+		left_top = copy.left_top;
+		size = copy.size;
+		return *this;
+	}
 };

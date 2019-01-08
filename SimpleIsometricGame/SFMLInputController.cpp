@@ -53,6 +53,12 @@ void SFMLInputController::Update()
 			case sf::Keyboard::R:
 				game_model_->Restart();
 				break;
+			case sf::Keyboard::Z:
+				game_view_->Zoom(1.0f + zoom_ratio_);
+				break;
+			case sf::Keyboard::X:
+				game_view_->Zoom(1.0f - zoom_ratio_);
+				break;
 			default:
 				break;
 			}

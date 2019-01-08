@@ -17,5 +17,9 @@ public:
 	bool IsRunning();
 	virtual void Zoom(float factor);
 	virtual void SetCenter(float2 center);
+	virtual float2 GetCenter();
+	virtual float2 GetSize();
+	virtual float2 PixelToCoord(int2 pixel_pos);
+	//virtual Rect GetRect();
 };
 
